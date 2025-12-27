@@ -1,0 +1,1527 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ஸ்ரீ ஜோதிட ஆலயம் | Sri Jothida Aalayam - Hindu Tamil Astrology</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Tamil:wght@400;500;600;700&family=Crimson+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --saffron: #FF6B00;
+            --saffron-light: #FF9F45;
+            --vermillion: #E23D28;
+            --gold: #D4A017;
+            --gold-light: #F4C430;
+            --deep-maroon: #800020;
+            --cream: #FFF8E7;
+            --ivory: #FFFEF5;
+            --temple-red: #B22222;
+            --peacock-blue: #005F69;
+            --bronze: #CD7F32;
+            --dark-wood: #3D2914;
+            --kolam-pattern: repeating-conic-gradient(
+                from 0deg at 50% 50%,
+                transparent 0deg 30deg,
+                rgba(212, 160, 23, 0.1) 30deg 60deg
+            );
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Serif Tamil', 'Crimson Pro', serif;
+            background: var(--cream);
+            color: var(--dark-wood);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Decorative Border Pattern */
+        .temple-border {
+            height: 8px;
+            background: repeating-linear-gradient(
+                90deg,
+                var(--saffron) 0px,
+                var(--saffron) 20px,
+                var(--gold) 20px,
+                var(--gold) 40px,
+                var(--vermillion) 40px,
+                var(--vermillion) 60px
+            );
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--deep-maroon) 0%, var(--temple-red) 50%, var(--deep-maroon) 100%);
+            color: var(--cream);
+            padding: 0;
+            position: relative;
+        }
+
+        .header-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(255, 215, 0, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .om-symbol {
+            font-size: 4rem;
+            color: var(--gold);
+            text-shadow: 0 0 30px rgba(212, 160, 23, 0.5);
+            animation: glow 3s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { text-shadow: 0 0 30px rgba(212, 160, 23, 0.5); }
+            50% { text-shadow: 0 0 50px rgba(212, 160, 23, 0.8), 0 0 80px rgba(255, 159, 69, 0.4); }
+        }
+
+        .site-title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin: 1rem 0 0.5rem;
+            color: var(--gold-light);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .site-subtitle {
+            font-size: 1.3rem;
+            color: var(--cream);
+            opacity: 0.9;
+            letter-spacing: 2px;
+        }
+
+        /* Navigation */
+        nav {
+            background: var(--dark-wood);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            list-style: none;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        nav a {
+            color: var(--gold-light);
+            text-decoration: none;
+            font-size: 1.1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        nav a:hover {
+            color: var(--cream);
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        section {
+            margin-bottom: 4rem;
+            background: var(--ivory);
+            border-radius: 12px;
+            padding: 2.5rem;
+            box-shadow: 0 8px 32px rgba(61, 41, 20, 0.1);
+            border: 1px solid rgba(212, 160, 23, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--saffron), var(--gold), var(--vermillion));
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: var(--deep-maroon);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .section-icon {
+            font-size: 2.5rem;
+        }
+
+        /* Horoscope Generator Form */
+        .horoscope-form {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--deep-maroon);
+            font-size: 1.05rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 0.9rem 1rem;
+            border: 2px solid rgba(212, 160, 23, 0.3);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            background: var(--cream);
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 4px rgba(212, 160, 23, 0.15);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--saffron), var(--vermillion));
+            color: white;
+            border: none;
+            padding: 1rem 2.5rem;
+            font-size: 1.15rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 4px 15px rgba(226, 61, 40, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(226, 61, 40, 0.4);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, var(--peacock-blue), #007A7A);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(0, 95, 105, 0.4);
+        }
+
+        /* Result Display */
+        .horoscope-result {
+            margin-top: 2rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(212, 160, 23, 0.1), rgba(255, 107, 0, 0.05));
+            border-radius: 12px;
+            border: 2px solid var(--gold);
+            display: none;
+        }
+
+        .horoscope-result.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .result-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .rasi-chart {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2px;
+            max-width: 500px;
+            margin: 2rem auto;
+            background: var(--dark-wood);
+            padding: 2px;
+            border-radius: 8px;
+        }
+
+        .rasi-box {
+            background: var(--cream);
+            padding: 1rem;
+            text-align: center;
+            min-height: 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+        }
+
+        .rasi-box.center {
+            grid-column: 2 / 4;
+            grid-row: 2 / 4;
+            background: linear-gradient(135deg, var(--cream), rgba(212, 160, 23, 0.2));
+            font-weight: 600;
+        }
+
+        .rasi-name {
+            font-weight: 600;
+            color: var(--deep-maroon);
+        }
+
+        .planet-info {
+            font-size: 0.8rem;
+            color: var(--peacock-blue);
+            margin-top: 0.3rem;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .service-card {
+            background: var(--cream);
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid rgba(212, 160, 23, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .service-card:hover::before {
+            left: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(61, 41, 20, 0.15);
+            border-color: var(--gold);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-title {
+            font-size: 1.4rem;
+            color: var(--deep-maroon);
+            margin-bottom: 0.75rem;
+        }
+
+        .service-desc {
+            color: var(--dark-wood);
+            opacity: 0.85;
+            margin-bottom: 1rem;
+        }
+
+        .service-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--saffron);
+        }
+
+        .service-price span {
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: var(--dark-wood);
+        }
+
+        /* Nakshatra Info */
+        .nakshatra-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .nakshatra-item {
+            background: var(--cream);
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid rgba(212, 160, 23, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .nakshatra-item:hover {
+            border-color: var(--gold);
+            background: rgba(212, 160, 23, 0.1);
+        }
+
+        .nakshatra-symbol {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .full-width {
+            grid-column: 1 / -1;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .about-image {
+            width: 100%;
+            max-width: 350px;
+            margin: 0 auto;
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, var(--saffron), var(--gold));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8rem;
+            box-shadow: 0 20px 60px rgba(212, 160, 23, 0.3);
+        }
+
+        .credentials {
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+            background: rgba(212, 160, 23, 0.1);
+            border-radius: 8px;
+            border-left: 4px solid var(--gold);
+        }
+
+        /* Testimonials */
+        .testimonials-carousel {
+            display: flex;
+            gap: 2rem;
+            overflow-x: auto;
+            padding: 1rem 0;
+            scroll-snap-type: x mandatory;
+        }
+
+        .testimonial-card {
+            min-width: 350px;
+            background: var(--cream);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid rgba(212, 160, 23, 0.2);
+            scroll-snap-align: start;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1rem;
+            color: var(--dark-wood);
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--deep-maroon);
+        }
+
+        .testimonial-location {
+            font-size: 0.9rem;
+            color: var(--peacock-blue);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-wood);
+            color: var(--cream);
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--gold-light);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: var(--cream);
+            opacity: 0.85;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a:hover {
+            opacity: 1;
+            color: var(--gold-light);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+        }
+
+        /* Rasi Selector */
+        .rasi-selector {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+
+        .rasi-option {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0.75rem;
+            background: var(--cream);
+            border: 2px solid rgba(212, 160, 23, 0.2);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .rasi-option:hover,
+        .rasi-option.selected {
+            border-color: var(--gold);
+            background: rgba(212, 160, 23, 0.15);
+        }
+
+        .rasi-option input {
+            display: none;
+        }
+
+        .rasi-option .symbol {
+            font-size: 1.5rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .rasi-option .name {
+            font-size: 0.85rem;
+            text-align: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .site-title {
+                font-size: 2rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+
+            nav a {
+                font-size: 0.95rem;
+                padding: 0.4rem 0.7rem;
+            }
+
+            section {
+                padding: 1.5rem;
+            }
+
+            .rasi-selector {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .testimonial-card {
+                min-width: 280px;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+
+        /* Daily Panchang */
+        .panchang-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .panchang-item {
+            background: var(--cream);
+            padding: 1.25rem;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid rgba(212, 160, 23, 0.2);
+        }
+
+        .panchang-label {
+            font-size: 0.9rem;
+            color: var(--peacock-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .panchang-value {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--deep-maroon);
+        }
+
+        /* Toast Message */
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--peacock-blue);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            transform: translateY(150%);
+            transition: transform 0.3s ease;
+            z-index: 1000;
+        }
+
+        .toast.show {
+            transform: translateY(0);
+        }
+
+        /* Print Styles for Horoscope */
+        @media print {
+            nav, .btn-primary, .btn-secondary, footer {
+                display: none;
+            }
+            
+            .horoscope-result {
+                border: 2px solid #000;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="temple-border"></div>
+    
+    <header>
+        <div class="header-pattern"></div>
+        <div class="header-content">
+            <div class="om-symbol">ॐ</div>
+            <h1 class="site-title">ஸ்ரீ ஜோதிட ஆலயம்</h1>
+            <p class="site-subtitle">Sri Jothida Aalayam • Vedic Astrology Services</p>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#home">முகப்பு (Home)</a></li>
+            <li><a href="#horoscope">ஜாதகம் (Horoscope)</a></li>
+            <li><a href="#panchang">பஞ்சாங்கம் (Panchang)</a></li>
+            <li><a href="#services">சேவைகள் (Services)</a></li>
+            <li><a href="#about">எங்களை பற்றி (About)</a></li>
+            <li><a href="#contact">தொடர்புக்கு (Contact)</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="fade-in">
+            <div class="section-title">
+                <span class="section-icon">🙏</span>
+                வணக்கம் | Welcome
+            </div>
+            <p style="font-size: 1.15rem; margin-bottom: 1.5rem;">
+                வேத ஜோதிடத்தின் அடிப்படையில் துல்லியமான ஜாதக பலன்கள், திருமண பொருத்தம், 
+                கிரக தோஷ நிவாரணம் மற்றும் அனைத்து ஜோதிட சேவைகளும்.
+            </p>
+            <p style="font-size: 1.1rem; color: var(--peacock-blue);">
+                Authentic Vedic astrology services including birth chart analysis, marriage compatibility, 
+                planetary remedies, and muhurtha selection based on ancient Tamil astrological traditions.
+            </p>
+        </section>
+
+        <!-- Daily Panchang -->
+        <section id="panchang" class="fade-in delay-1">
+            <div class="section-title">
+                <span class="section-icon">📅</span>
+                இன்றைய பஞ்சாங்கம் | Today's Panchang
+            </div>
+            <div class="panchang-grid" id="panchangGrid">
+                <div class="panchang-item">
+                    <div class="panchang-label">தேதி / Date</div>
+                    <div class="panchang-value" id="panchangDate">Loading...</div>
+                </div>
+                <div class="panchang-item">
+                    <div class="panchang-label">திதி / Tithi</div>
+                    <div class="panchang-value" id="panchangTithi">-</div>
+                </div>
+                <div class="panchang-item">
+                    <div class="panchang-label">நட்சத்திரம் / Nakshatra</div>
+                    <div class="panchang-value" id="panchangNakshatra">-</div>
+                </div>
+                <div class="panchang-item">
+                    <div class="panchang-label">யோகம் / Yoga</div>
+                    <div class="panchang-value" id="panchangYoga">-</div>
+                </div>
+                <div class="panchang-item">
+                    <div class="panchang-label">கரணம் / Karana</div>
+                    <div class="panchang-value" id="panchangKarana">-</div>
+                </div>
+                <div class="panchang-item">
+                    <div class="panchang-label">ராகு காலம் / Rahu Kalam</div>
+                    <div class="panchang-value" id="panchangRahu">-</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Horoscope Generator -->
+        <section id="horoscope" class="fade-in delay-2">
+            <div class="section-title">
+                <span class="section-icon">✨</span>
+                ஜாதகம் உருவாக்கம் | Generate Horoscope
+            </div>
+            <p style="margin-bottom: 2rem;">
+                பிறந்த நேரம், தேதி மற்றும் இடத்தை பதிவு செய்து உங்கள் ஜாதகத்தை உருவாக்குங்கள்.
+                <br>Enter your birth details to generate your personalized horoscope chart.
+            </p>
+            
+            <form class="horoscope-form" id="horoscopeForm">
+                <div class="form-group">
+                    <label for="fullName">பெயர் / Full Name *</label>
+                    <input type="text" id="fullName" name="fullName" required placeholder="Enter full name">
+                </div>
+                
+                <div class="form-group">
+                    <label for="gender">பாலினம் / Gender *</label>
+                    <select id="gender" name="gender" required>
+                        <option value="">-- Select --</option>
+                        <option value="male">ஆண் / Male</option>
+                        <option value="female">பெண் / Female</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="birthDate">பிறந்த தேதி / Date of Birth *</label>
+                    <input type="date" id="birthDate" name="birthDate" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="birthTime">பிறந்த நேரம் / Time of Birth *</label>
+                    <input type="time" id="birthTime" name="birthTime" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="birthPlace">பிறந்த ஊர் / Place of Birth *</label>
+                    <input type="text" id="birthPlace" name="birthPlace" required placeholder="Enter city/town name">
+                </div>
+                
+                <div class="form-group">
+                    <label for="birthState">மாநிலம் / State</label>
+                    <input type="text" id="birthState" name="birthState" placeholder="Enter state">
+                </div>
+                
+                <div class="form-group">
+                    <label for="birthCountry">நாடு / Country</label>
+                    <select id="birthCountry" name="birthCountry">
+                        <option value="India">India</option>
+                        <option value="Sri Lanka">Sri Lanka</option>
+                        <option value="Malaysia">Malaysia</option>
+                        <option value="Singapore">Singapore</option>
+                        <option value="USA">USA</option>
+                        <option value="UK">UK</option>
+                        <option value="Canada">Canada</option>
+                        <option value="Australia">Australia</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">தொலைபேசி / Phone</label>
+                    <input type="tel" id="phone" name="phone" placeholder="For follow-up">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">மின்னஞ்சல் / Email</label>
+                    <input type="email" id="email" name="email" placeholder="To receive horoscope">
+                </div>
+                
+                <div class="form-group">
+                    <label for="purpose">நோக்கம் / Purpose</label>
+                    <select id="purpose" name="purpose">
+                        <option value="general">பொது ஜாதகம் / General Reading</option>
+                        <option value="marriage">திருமண பொருத்தம் / Marriage</option>
+                        <option value="career">தொழில் / Career</option>
+                        <option value="health">உடல் நலம் / Health</option>
+                        <option value="education">கல்வி / Education</option>
+                    </select>
+                </div>
+                
+                <div class="form-group full-width">
+                    <label for="notes">கூடுதல் குறிப்புகள் / Additional Notes</label>
+                    <textarea id="notes" name="notes" rows="3" placeholder="Any specific questions or concerns..."></textarea>
+                </div>
+                
+                <div class="form-group full-width" style="flex-direction: row; gap: 1rem; flex-wrap: wrap;">
+                    <button type="submit" class="btn-primary">
+                        ✨ ஜாதகம் உருவாக்கு / Generate Horoscope
+                    </button>
+                    <button type="button" class="btn-secondary" onclick="printHoroscope()">
+                        🖨️ Print
+                    </button>
+                </div>
+            </form>
+
+            <!-- Horoscope Result -->
+            <div class="horoscope-result" id="horoscopeResult">
+                <div class="result-header">
+                    <h3 style="color: var(--deep-maroon); font-size: 1.8rem;">ஜாதக சக்கரம் / Birth Chart</h3>
+                    <p id="resultName" style="font-size: 1.2rem; margin-top: 0.5rem;"></p>
+                    <p id="resultDetails" style="color: var(--peacock-blue);"></p>
+                </div>
+
+                <!-- Rasi Chart (South Indian Style) -->
+                <div class="rasi-chart" id="rasiChart">
+                    <div class="rasi-box" id="box1">
+                        <span class="rasi-name">மீனம்</span>
+                        <span class="planet-info"></span>
+                    </div>
+                    <div class="rasi-box" id="box2">
+                        <span class="rasi-name">மேஷம்</span>
+                        <span class="planet-info"></span>
+                    </div>
+                    <div class="rasi-box" id="box3">
+                        <span class="rasi-name">ரிஷபம்</span>
+                        <span class="planet-info"></span>
+                    </div>
+                    <div class="rasi-box" id="box4">
+                        <span class="rasi-name">மிதுனம்</span>
+                        <span class="planet-info"></span>
+                    </div>
+                    <div class="rasi-box" id="box5">
+                        <span class="rasi-name">கும்பம்</span>
+                        <span class="planet-info"></span>
+                    </div>
+                    <div class="rasi-box center">
+                        <div id="lagnaInfo" style="font-size: 1.2rem; color: var(--deep-maroon);">லக்னம்</div>
+                        <div id="rasiInfo" style="margin-top: 0.5rem;">Loading...</div>
+                    </div>
+                    <div class="rasi-box" id="box6">
+                        <span class="rasi-name">கடகம்</span>
+                        <span class="planet-info"></span>
+                    </div>
+                    <div class="rasi-box" id="box7">
+                        <span class="rasi-name">மகரம்</span>
+                        <span class="planet-info"></span>
+                    </div>
+                    <div class="rasi-box" id="box8">
+                        <span class="rasi-name">சிம்மம்</span>
+                        <span class="planet-info"></span>
+                    </div>
+                    <div class="rasi-box" id="box9">
+                        <span class="rasi-name">தனுசு</span>
+                        <span class="planet-info"></span>
+                    </div>
+                    <div class="rasi-box" id="box10">
+                        <span class="rasi-name">விருச்சிகம்</span>
+                        <span class="planet-info"></span>
+                    </div>
+                    <div class="rasi-box" id="box11">
+                        <span class="rasi-name">துலாம்</span>
+                        <span class="planet-info"></span>
+                    </div>
+                    <div class="rasi-box" id="box12">
+                        <span class="rasi-name">கன்னி</span>
+                        <span class="planet-info"></span>
+                    </div>
+                </div>
+
+                <div style="margin-top: 2rem;">
+                    <h4 style="color: var(--deep-maroon); margin-bottom: 1rem;">அடிப்படை விவரங்கள் / Basic Details</h4>
+                    <div class="panchang-grid">
+                        <div class="panchang-item">
+                            <div class="panchang-label">ராசி / Rasi</div>
+                            <div class="panchang-value" id="resultRasi">-</div>
+                        </div>
+                        <div class="panchang-item">
+                            <div class="panchang-label">நட்சத்திரம் / Nakshatra</div>
+                            <div class="panchang-value" id="resultNakshatra">-</div>
+                        </div>
+                        <div class="panchang-item">
+                            <div class="panchang-label">லக்னம் / Lagna</div>
+                            <div class="panchang-value" id="resultLagna">-</div>
+                        </div>
+                        <div class="panchang-item">
+                            <div class="panchang-label">திதி / Tithi</div>
+                            <div class="panchang-value" id="resultTithi">-</div>
+                        </div>
+                        <div class="panchang-item">
+                            <div class="panchang-label">தசா / Dasa</div>
+                            <div class="panchang-value" id="resultDasa">-</div>
+                        </div>
+                        <div class="panchang-item">
+                            <div class="panchang-label">யோகம் / Yoga</div>
+                            <div class="panchang-value" id="resultYoga">-</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(0, 95, 105, 0.1); border-radius: 8px;">
+                    <p style="text-align: center; color: var(--peacock-blue);">
+                        📞 விரிவான ஜாதக ஆலோசனைக்கு எங்களை தொடர்பு கொள்ளுங்கள்
+                        <br>For detailed consultation, please contact us.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services -->
+        <section id="services" class="fade-in delay-3">
+            <div class="section-title">
+                <span class="section-icon">🔮</span>
+                எங்கள் சேவைகள் | Our Services
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">📜</div>
+                    <h3 class="service-title">ஜாதக பரிசோதனை</h3>
+                    <p class="service-desc">Complete birth chart analysis with predictions for career, marriage, health, and wealth based on planetary positions.</p>
+                    <div class="service-price">₹1,500 <span>onwards</span></div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">💑</div>
+                    <h3 class="service-title">திருமண பொருத்தம்</h3>
+                    <p class="service-desc">Marriage compatibility matching (10 Porutham) with detailed analysis of both horoscopes and remedies if needed.</p>
+                    <div class="service-price">₹2,000 <span>per pair</span></div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🕉️</div>
+                    <h3 class="service-title">தோஷ நிவாரணம்</h3>
+                    <p class="service-desc">Identification and remedies for Mangal Dosha, Kala Sarpa Dosha, Shani Dosha and other planetary afflictions.</p>
+                    <div class="service-price">₹1,000 <span>onwards</span></div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">📿</div>
+                    <h3 class="service-title">பரிகாரம்</h3>
+                    <p class="service-desc">Personalized remedial measures including gemstone recommendations, mantra, puja, and charitable activities.</p>
+                    <div class="service-price">₹500 <span>onwards</span></div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">📅</div>
+                    <h3 class="service-title">முகூர்த்தம்</h3>
+                    <p class="service-desc">Auspicious date and time selection for marriage, housewarming, business launch, and other important events.</p>
+                    <div class="service-price">₹1,000 <span>per event</span></div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">👶</div>
+                    <h3 class="service-title">நாமகரணம்</h3>
+                    <p class="service-desc">Baby naming ceremony guidance with auspicious letters based on nakshatra and complete name suggestions.</p>
+                    <div class="service-price">₹500 <span>onwards</span></div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">💼</div>
+                    <h3 class="service-title">தொழில் ஆலோசனை</h3>
+                    <p class="service-desc">Career guidance, business partnership compatibility, and auspicious timing for professional decisions.</p>
+                    <div class="service-price">₹1,200 <span>per session</span></div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">🎓</div>
+                    <h3 class="service-title">வருடாந்திர பலன்</h3>
+                    <p class="service-desc">Annual predictions (Varshaphala) covering all aspects of life for the coming Tamil year.</p>
+                    <div class="service-price">₹800 <span>per year</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About -->
+        <section id="about">
+            <div class="section-title">
+                <span class="section-icon">🙏</span>
+                எங்களை பற்றி | About Us
+            </div>
+            
+            <div class="about-content">
+                <div>
+                    <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">
+                        வேத ஜோதிடத்தில் 25+ வருட அனுபவத்துடன், நூற்றுக்கணக்கான குடும்பங்களுக்கு 
+                        ஜோதிட ஆலோசனை வழங்கி வருகிறோம். பாரம்பரிய தமிழ் ஜோதிட முறைகளை பின்பற்றி 
+                        துல்லியமான ஜாதக பலன்களை வழங்குவதில் நிபுணத்துவம் பெற்றவர்கள்.
+                    </p>
+                    <p style="margin-bottom: 1.5rem;">
+                        With over 25 years of experience in Vedic astrology, we have been providing 
+                        astrological guidance to hundreds of families. We specialize in providing 
+                        accurate horoscope predictions following traditional Tamil astrological methods.
+                    </p>
+                    
+                    <div class="credentials">
+                        <h4 style="color: var(--deep-maroon); margin-bottom: 0.75rem;">நிபுணத்துவம் / Expertise:</h4>
+                        <ul style="list-style-position: inside; color: var(--dark-wood);">
+                            <li>Traditional Tamil Jothidam</li>
+                            <li>Vedic Horoscope Analysis</li>
+                            <li>Prasna Shastra (Horary)</li>
+                            <li>Vastu Consultation</li>
+                            <li>Numerology</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="about-image">
+                    🔱
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section>
+            <div class="section-title">
+                <span class="section-icon">⭐</span>
+                வாடிக்கையாளர் கருத்துகள் | Testimonials
+            </div>
+            
+            <div class="testimonials-carousel">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">
+                        "எங்கள் மகளின் திருமணத்திற்கு மிகச்சிறந்த முகூர்த்தம் கணித்துக் கொடுத்தார்கள். 
+                        திருமணம் சிறப்பாக நடந்தது. மிக்க நன்றி!"
+                    </p>
+                    <p class="testimonial-author">திரு. ராமசுப்ரமணியன்</p>
+                    <p class="testimonial-location">Chennai, Tamil Nadu</p>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">
+                        "Career guidance was spot on. The timing suggested for my job change worked 
+                        perfectly. Very knowledgeable and helpful."
+                    </p>
+                    <p class="testimonial-author">Priya Krishnan</p>
+                    <p class="testimonial-location">Bangalore, Karnataka</p>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">
+                        "பத்து வருடமாக குழந்தை பாக்கியம் இல்லை. பரிகாரம் செய்த பிறகு கடவுள் கருணையால் 
+                        குழந்தை பிறந்தது. மிகவும் நன்றி!"
+                    </p>
+                    <p class="testimonial-author">திருமதி. கமலா</p>
+                    <p class="testimonial-location">Madurai, Tamil Nadu</p>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">
+                        "Very detailed horoscope analysis. Explained everything patiently. 
+                        The predictions have been accurate so far. Highly recommended!"
+                    </p>
+                    <p class="testimonial-author">Senthil Kumar</p>
+                    <p class="testimonial-location">Singapore</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact">
+            <div class="section-title">
+                <span class="section-icon">📞</span>
+                தொடர்புக்கு | Contact Us
+            </div>
+            
+            <div class="contact-form">
+                <form class="horoscope-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="contactName">பெயர் / Name *</label>
+                        <input type="text" id="contactName" name="contactName" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contactPhone">தொலைபேசி / Phone *</label>
+                        <input type="tel" id="contactPhone" name="contactPhone" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contactEmail">மின்னஞ்சல் / Email</label>
+                        <input type="email" id="contactEmail" name="contactEmail">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="serviceType">சேவை / Service Required</label>
+                        <select id="serviceType" name="serviceType">
+                            <option value="horoscope">ஜாதக பரிசோதனை / Horoscope Reading</option>
+                            <option value="matching">திருமண பொருத்தம் / Marriage Matching</option>
+                            <option value="muhurtham">முகூர்த்தம் / Muhurtham</option>
+                            <option value="remedy">பரிகாரம் / Remedies</option>
+                            <option value="other">மற்றவை / Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group full-width">
+                        <label for="contactMessage">செய்தி / Message *</label>
+                        <textarea id="contactMessage" name="contactMessage" rows="4" required 
+                            placeholder="Please describe your requirement..."></textarea>
+                    </div>
+                    
+                    <div class="form-group full-width">
+                        <button type="submit" class="btn-primary">
+                            📤 செய்தி அனுப்பு / Send Message
+                        </button>
+                    </div>
+                </form>
+                
+                <div style="margin-top: 2rem; text-align: center; padding: 2rem; background: rgba(212, 160, 23, 0.1); border-radius: 12px;">
+                    <h4 style="color: var(--deep-maroon); margin-bottom: 1rem;">நேரடி தொடர்புக்கு / Direct Contact</h4>
+                    <p style="font-size: 1.2rem; margin-bottom: 0.5rem;">📞 +91 98765 43210</p>
+                    <p style="font-size: 1.1rem; margin-bottom: 0.5rem;">📧 astrology@example.com</p>
+                    <p style="font-size: 1rem; color: var(--peacock-blue);">
+                        ⏰ ஆலோசனை நேரம்: காலை 9 - இரவு 8
+                        <br>Consultation Hours: 9 AM - 8 PM
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Send Horoscope Section -->
+        <section id="send-horoscope">
+            <div class="section-title">
+                <span class="section-icon">📄</span>
+                ஜாதகம் அனுப்ப | Send Horoscope for Review
+            </div>
+            <p style="margin-bottom: 1.5rem;">
+                உங்கள் ஏற்கனவே உள்ள ஜாதகத்தை பரிசோதனைக்கு அனுப்பலாம். 
+                <br>You can send your existing horoscope for detailed analysis.
+            </p>
+            
+            <form class="horoscope-form" id="uploadForm">
+                <div class="form-group">
+                    <label for="uploadName">பெயர் / Name *</label>
+                    <input type="text" id="uploadName" name="uploadName" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="uploadPhone">தொலைபேசி / Phone *</label>
+                    <input type="tel" id="uploadPhone" name="uploadPhone" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="uploadEmail">மின்னஞ்சல் / Email *</label>
+                    <input type="email" id="uploadEmail" name="uploadEmail" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="reviewType">பரிசோதனை வகை / Review Type</label>
+                    <select id="reviewType" name="reviewType">
+                        <option value="general">பொது பரிசோதனை / General Review</option>
+                        <option value="marriage">திருமண ஆலோசனை / Marriage Advice</option>
+                        <option value="career">தொழில் ஆலோசனை / Career Guidance</option>
+                        <option value="second-opinion">இரண்டாம் கருத்து / Second Opinion</option>
+                    </select>
+                </div>
+                
+                <div class="form-group full-width">
+                    <label for="horoscopeFile">ஜாதகம் பதிவேற்றம் / Upload Horoscope</label>
+                    <input type="file" id="horoscopeFile" name="horoscopeFile" 
+                        accept=".pdf,.jpg,.jpeg,.png,.doc,.docx"
+                        style="padding: 1rem; background: var(--cream); border: 2px dashed var(--gold);">
+                    <small style="color: var(--peacock-blue); margin-top: 0.5rem; display: block;">
+                        Accepted formats: PDF, JPG, PNG, DOC (Max 5MB)
+                    </small>
+                </div>
+                
+                <div class="form-group full-width">
+                    <label for="uploadNotes">கேள்விகள் / Specific Questions</label>
+                    <textarea id="uploadNotes" name="uploadNotes" rows="4" 
+                        placeholder="What would you like to know about your horoscope?"></textarea>
+                </div>
+                
+                <div class="form-group full-width">
+                    <button type="submit" class="btn-primary">
+                        📤 ஜாதகம் அனுப்பு / Submit Horoscope
+                    </button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>ஸ்ரீ ஜோதிட ஆலயம்</h3>
+                <p>Traditional Tamil Vedic Astrology</p>
+                <p>Serving since 1999</p>
+                <p style="margin-top: 1rem; font-size: 2rem;">🙏 ॐ 🔱</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>விரைவு இணைப்புகள்</h3>
+                <a href="#horoscope">ஜாதகம் உருவாக்கம்</a>
+                <a href="#services">சேவைகள்</a>
+                <a href="#send-horoscope">ஜாதகம் அனுப்ப</a>
+                <a href="#contact">தொடர்புக்கு</a>
+            </div>
+            
+            <div class="footer-section">
+                <h3>சேவைகள்</h3>
+                <a href="#services">ஜாதக பரிசோதனை</a>
+                <a href="#services">திருமண பொருத்தம்</a>
+                <a href="#services">முகூர்த்தம்</a>
+                <a href="#services">பரிகாரம்</a>
+            </div>
+            
+            <div class="footer-section">
+                <h3>தொடர்பு</h3>
+                <p>📞 +91 98765 43210</p>
+                <p>📧 astrology@example.com</p>
+                <p>📍 Chennai, Tamil Nadu, India</p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© 2024 ஸ்ரீ ஜோதிட ஆலயம் | Sri Jothida Aalayam. All rights reserved.</p>
+            <p style="margin-top: 0.5rem;">சர்வம் கிருஷ்ணார்ப்பணம் 🙏</p>
+        </div>
+    </footer>
+
+    <div class="toast" id="toast">Message sent successfully!</div>
+
+    <script>
+        // Rasi/Nakshatra Data
+        const rasiData = [
+            { tamil: 'மேஷம்', english: 'Mesha (Aries)', symbol: '♈' },
+            { tamil: 'ரிஷபம்', english: 'Rishabha (Taurus)', symbol: '♉' },
+            { tamil: 'மிதுனம்', english: 'Mithuna (Gemini)', symbol: '♊' },
+            { tamil: 'கடகம்', english: 'Kataka (Cancer)', symbol: '♋' },
+            { tamil: 'சிம்மம்', english: 'Simha (Leo)', symbol: '♌' },
+            { tamil: 'கன்னி', english: 'Kanya (Virgo)', symbol: '♍' },
+            { tamil: 'துலாம்', english: 'Thulam (Libra)', symbol: '♎' },
+            { tamil: 'விருச்சிகம்', english: 'Vrischika (Scorpio)', symbol: '♏' },
+            { tamil: 'தனுசு', english: 'Dhanus (Sagittarius)', symbol: '♐' },
+            { tamil: 'மகரம்', english: 'Makara (Capricorn)', symbol: '♑' },
+            { tamil: 'கும்பம்', english: 'Kumbha (Aquarius)', symbol: '♒' },
+            { tamil: 'மீனம்', english: 'Meena (Pisces)', symbol: '♓' }
+        ];
+
+        const nakshatraData = [
+            'அசுவினி (Ashwini)', 'பரணி (Bharani)', 'கார்த்திகை (Krittika)',
+            'ரோகிணி (Rohini)', 'மிருகசீரிஷம் (Mrigashira)', 'திருவாதிரை (Ardra)',
+            'புனர்பூசம் (Punarvasu)', 'பூசம் (Pushya)', 'ஆயில்யம் (Ashlesha)',
+            'மகம் (Magha)', 'பூரம் (Purva Phalguni)', 'உத்திரம் (Uttara Phalguni)',
+            'ஹஸ்தம் (Hasta)', 'சித்திரை (Chitra)', 'சுவாதி (Swati)',
+            'விசாகம் (Vishakha)', 'அனுஷம் (Anuradha)', 'கேட்டை (Jyeshtha)',
+            'மூலம் (Mula)', 'பூராடம் (Purva Ashadha)', 'உத்திராடம் (Uttara Ashadha)',
+            'திருவோணம் (Shravana)', 'அவிட்டம் (Dhanishta)', 'சதயம் (Shatabhisha)',
+            'பூரட்டாதி (Purva Bhadrapada)', 'உத்திரட்டாதி (Uttara Bhadrapada)', 'ரேவதி (Revati)'
+        ];
+
+        const tithiData = [
+            'பிரதமை (Pratipada)', 'துவிதியை (Dwitiya)', 'திருதியை (Tritiya)',
+            'சதுர்த்தி (Chaturthi)', 'பஞ்சமி (Panchami)', 'சஷ்டி (Shashthi)',
+            'சப்தமி (Saptami)', 'அஷ்டமி (Ashtami)', 'நவமி (Navami)',
+            'தசமி (Dashami)', 'ஏகாதசி (Ekadashi)', 'துவாதசி (Dwadashi)',
+            'திரயோதசி (Trayodashi)', 'சதுர்த்தசி (Chaturdashi)', 'பௌர்ணமி/அமாவாசை'
+        ];
+
+        const yogaData = [
+            'விஷ்கம்பம்', 'ப்ரீதி', 'ஆயுஷ்மான்', 'சௌபாக்யம்', 'சோபனம்',
+            'அதிகண்டம்', 'சுகர்மா', 'த்ருதி', 'சூலம்', 'கண்டம்',
+            'வ்ருத்தி', 'த்ருவம்', 'வ்யாகாதம்', 'ஹர்ஷணம்', 'வஜ்ரம்',
+            'சித்தி', 'வ்யதீபாதம்', 'வரீயான்', 'பரிகம்', 'சிவம்',
+            'சித்தம்', 'சாத்யம்', 'சுபம்', 'சுக்லம்', 'பிரம்மம்',
+            'ஐந்திரம்', 'வைத்ருதி'
+        ];
+
+        const dasaData = ['சூரிய தசா', 'சந்திர தசா', 'செவ்வாய் தசா', 'ராகு தசா', 
+            'குரு தசா', 'சனி தசா', 'புதன் தசா', 'கேது தசா', 'சுக்கிர தசா'];
+
+        const planets = ['சூ', 'சந்', 'செ', 'புத', 'குரு', 'சுக்', 'சனி', 'ரா', 'கே'];
+
+        // Initialize Panchang
+        function initPanchang() {
+            const today = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const tamilDate = today.toLocaleDateString('ta-IN', options);
+            
+            document.getElementById('panchangDate').textContent = tamilDate;
+            
+            // Simulated panchang data (in production, this would come from an API)
+            const dayIndex = today.getDate() % 27;
+            const tithiIndex = today.getDate() % 15;
+            const yogaIndex = (today.getDate() + today.getMonth()) % 27;
+            
+            document.getElementById('panchangTithi').textContent = tithiData[tithiIndex];
+            document.getElementById('panchangNakshatra').textContent = nakshatraData[dayIndex];
+            document.getElementById('panchangYoga').textContent = yogaData[yogaIndex];
+            document.getElementById('panchangKarana').textContent = 'பவ (Bava)';
+            
+            // Calculate Rahu Kalam based on day
+            const dayOfWeek = today.getDay();
+            const rahuKalamTimes = [
+                '4:30 PM - 6:00 PM', // Sunday
+                '7:30 AM - 9:00 AM', // Monday
+                '3:00 PM - 4:30 PM', // Tuesday
+                '12:00 PM - 1:30 PM', // Wednesday
+                '1:30 PM - 3:00 PM', // Thursday
+                '10:30 AM - 12:00 PM', // Friday
+                '9:00 AM - 10:30 AM'  // Saturday
+            ];
+            document.getElementById('panchangRahu').textContent = rahuKalamTimes[dayOfWeek];
+        }
+
+        // Horoscope Form Handler
+        document.getElementById('horoscopeForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            generateHoroscope();
+        });
+
+        function generateHoroscope() {
+            const name = document.getElementById('fullName').value;
+            const birthDate = document.getElementById('birthDate').value;
+            const birthTime = document.getElementById('birthTime').value;
+            const birthPlace = document.getElementById('birthPlace').value;
+            
+            // Parse date and time
+            const date = new Date(birthDate + 'T' + birthTime);
+            const month = date.getMonth();
+            const day = date.getDate();
+            const hour = date.getHours();
+            
+            // Calculate approximate Rasi based on birth month (simplified)
+            const rasiIndex = month;
+            const nakshatraIndex = (day + month) % 27;
+            const lagnaIndex = (hour + rasiIndex) % 12;
+            const tithiIndex = day % 15;
+            const dasaIndex = (month + day) % 9;
+            const yogaIndex = (day + hour) % 27;
+            
+            // Display results
+            document.getElementById('resultName').textContent = name;
+            document.getElementById('resultDetails').textContent = 
+                `Born: ${new Date(birthDate).toLocaleDateString('en-IN', { 
+                    weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' 
+                })} at ${birthTime} in ${birthPlace}`;
+            
+            document.getElementById('resultRasi').textContent = 
+                `${rasiData[rasiIndex].tamil} ${rasiData[rasiIndex].symbol}`;
+            document.getElementById('resultNakshatra').textContent = nakshatraData[nakshatraIndex];
+            document.getElementById('resultLagna').textContent = 
+                `${rasiData[lagnaIndex].tamil} ${rasiData[lagnaIndex].symbol}`;
+            document.getElementById('resultTithi').textContent = tithiData[tithiIndex];
+            document.getElementById('resultDasa').textContent = dasaData[dasaIndex];
+            document.getElementById('resultYoga').textContent = yogaData[yogaIndex];
+            
+            // Update center info
+            document.getElementById('lagnaInfo').innerHTML = 
+                `லக்னம்: ${rasiData[lagnaIndex].tamil}<br>${rasiData[lagnaIndex].symbol}`;
+            document.getElementById('rasiInfo').innerHTML = 
+                `ராசி: ${rasiData[rasiIndex].tamil}<br>நட்சத்திரம்: ${nakshatraData[nakshatraIndex].split(' ')[0]}`;
+            
+            // Distribute planets in chart (simplified random distribution for demo)
+            const boxes = document.querySelectorAll('.rasi-box:not(.center)');
+            boxes.forEach(box => {
+                const planetInfo = box.querySelector('.planet-info');
+                if (planetInfo) planetInfo.textContent = '';
+            });
+            
+            // Place some planets
+            const placements = [];
+            planets.forEach((planet, i) => {
+                const boxIndex = (lagnaIndex + i * 2) % 12;
+                placements[boxIndex] = placements[boxIndex] || [];
+                placements[boxIndex].push(planet);
+            });
+            
+            boxes.forEach((box, i) => {
+                const planetInfo = box.querySelector('.planet-info');
+                if (planetInfo && placements[i]) {
+                    planetInfo.textContent = placements[i].join(' ');
+                }
+            });
+            
+            // Show result
+            document.getElementById('horoscopeResult').classList.add('active');
+            document.getElementById('horoscopeResult').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function printHoroscope() {
+            const result = document.getElementById('horoscopeResult');
+            if (result.classList.contains('active')) {
+                window.print();
+            } else {
+                showToast('Please generate a horoscope first!');
+            }
+        }
+
+        // Contact Form Handler
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            showToast('செய்தி அனுப்பப்பட்டது! / Message sent successfully!');
+            this.reset();
+        });
+
+        // Upload Form Handler
+        document.getElementById('uploadForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            showToast('ஜாதகம் அனுப்பப்பட்டது! / Horoscope submitted successfully!');
+            this.reset();
+        });
+
+        // Toast Notification
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // Smooth Scroll for Navigation
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            initPanchang();
+            
+            // Animate sections on scroll
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            document.querySelectorAll('section').forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(30px)';
+                section.style.transition = 'all 0.6s ease';
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
