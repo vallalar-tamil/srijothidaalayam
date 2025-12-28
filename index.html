@@ -1197,7 +1197,7 @@
                 <div style="margin-top: 2rem; text-align: center; padding: 2rem; background: rgba(212, 160, 23, 0.1); border-radius: 12px;">
                     <h4 style="color: var(--deep-maroon); margin-bottom: 1rem;">நேரடி தொடர்புக்கு / Direct Contact</h4>
                     <p style="font-size: 1.2rem; margin-bottom: 0.5rem;">📞 +91 9976545017</p>
-                    <p style="font-size: 1.1rem; margin-bottom: 0.5rem;">📧 srijothidaaalayam@gmail.com</p>
+                    <p style="font-size: 1.1rem; margin-bottom: 0.5rem;">📧 <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="5526273c3f3a213d3c3134343439342c3438153238343c397b363a38">[email&#160;protected]</a></p>
                     <p style="font-size: 1rem; color: var(--peacock-blue);">
                         ⏰ ஆலோசனை நேரம்: காலை 9 - இரவு 8
                         <br>Consultation Hours: 9 AM - 8 PM
@@ -1296,7 +1296,7 @@
             <div class="footer-section">
                 <h3>தொடர்பு</h3>
                 <p>📞 +91 99765 45076</p>
-                <p>📧 srijothidaaalayam@gmail.com</p>
+                <p>📧 <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d6a5a4bfbcb9a2bebfb2b7b7b7bab7afb7bb96b1bbb7bfbaf8b5b9bb">[email&#160;protected]</a></p>
                 <p>📍 Pollachi, Tamil Nadu, India</p>
             </div>
         </div>
@@ -1310,7 +1310,7 @@
 
     <div class="toast" id="toast">Message sent successfully!</div>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Rasi/Nakshatra Data
         const rasiData = [
             { tamil: 'மேஷம்', english: 'Mesha (Aries)', symbol: '♈' },
@@ -1968,19 +1968,119 @@
         }
 
         function getMoonLongitude(jd) {
+            // More accurate Moon longitude calculation with additional perturbation terms
             const T = (jd - 2451545.0) / 36525.0;
-            let L = norm360(218.3165 + 481267.8813 * T);
-            let D = norm360(297.8502 + 445267.1115 * T);
-            let M = norm360(357.5291 + 35999.0503 * T);
-            let Mp = norm360(134.9634 + 477198.8675 * T);
-            let F = norm360(93.2721 + 483202.0175 * T);
-            L += 6.289 * Math.sin(toRad(Mp));
-            L += 1.274 * Math.sin(toRad(2 * D - Mp));
-            L += 0.658 * Math.sin(toRad(2 * D));
-            L += 0.214 * Math.sin(toRad(2 * Mp));
-            L -= 0.186 * Math.sin(toRad(M));
-            L -= 0.114 * Math.sin(toRad(2 * F));
-            return norm360(L);
+            const T2 = T * T;
+            const T3 = T2 * T;
+            const T4 = T3 * T;
+            
+            // Mean longitude of Moon
+            let Lp = 218.3164477 + 481267.88123421 * T - 0.0015786 * T2 + T3 / 538841 - T4 / 65194000;
+            
+            // Mean elongation of Moon
+            let D = 297.8501921 + 445267.1114034 * T - 0.0018819 * T2 + T3 / 545868 - T4 / 113065000;
+            
+            // Sun's mean anomaly
+            let M = 357.5291092 + 35999.0502909 * T - 0.0001536 * T2 + T3 / 24490000;
+            
+            // Moon's mean anomaly
+            let Mp = 134.9633964 + 477198.8675055 * T + 0.0087414 * T2 + T3 / 69699 - T4 / 14712000;
+            
+            // Moon's argument of latitude
+            let F = 93.2720950 + 483202.0175233 * T - 0.0036539 * T2 - T3 / 3526000 + T4 / 863310000;
+            
+            // Additional arguments
+            let A1 = 119.75 + 131.849 * T;
+            let A2 = 53.09 + 479264.290 * T;
+            let A3 = 313.45 + 481266.484 * T;
+            
+            // Normalize all angles
+            Lp = norm360(Lp);
+            D = norm360(D);
+            M = norm360(M);
+            Mp = norm360(Mp);
+            F = norm360(F);
+            A1 = norm360(A1);
+            A2 = norm360(A2);
+            A3 = norm360(A3);
+            
+            // Eccentricity correction
+            const E = 1 - 0.002516 * T - 0.0000074 * T2;
+            const E2 = E * E;
+            
+            // Sum of longitude terms (main perturbations)
+            let sumL = 0;
+            
+            // Major terms
+            sumL += 6288774 * Math.sin(toRad(Mp));
+            sumL += 1274027 * Math.sin(toRad(2*D - Mp));
+            sumL += 658314 * Math.sin(toRad(2*D));
+            sumL += 213618 * Math.sin(toRad(2*Mp));
+            sumL += -185116 * E * Math.sin(toRad(M));
+            sumL += -114332 * Math.sin(toRad(2*F));
+            sumL += 58793 * Math.sin(toRad(2*D - 2*Mp));
+            sumL += 57066 * E * Math.sin(toRad(2*D - M - Mp));
+            sumL += 53322 * Math.sin(toRad(2*D + Mp));
+            sumL += 45758 * E * Math.sin(toRad(2*D - M));
+            sumL += -40923 * E * Math.sin(toRad(M - Mp));
+            sumL += -34720 * Math.sin(toRad(D));
+            sumL += -30383 * E * Math.sin(toRad(M + Mp));
+            sumL += 15327 * Math.sin(toRad(2*D - 2*F));
+            sumL += -12528 * Math.sin(toRad(Mp + 2*F));
+            sumL += 10980 * Math.sin(toRad(Mp - 2*F));
+            sumL += 10675 * Math.sin(toRad(4*D - Mp));
+            sumL += 10034 * Math.sin(toRad(3*Mp));
+            sumL += 8548 * Math.sin(toRad(4*D - 2*Mp));
+            sumL += -7888 * E * Math.sin(toRad(2*D + M - Mp));
+            sumL += -6766 * E * Math.sin(toRad(2*D + M));
+            sumL += -5163 * Math.sin(toRad(D - Mp));
+            sumL += 4987 * E * Math.sin(toRad(D + M));
+            sumL += 4036 * E * Math.sin(toRad(2*D - M + Mp));
+            sumL += 3994 * Math.sin(toRad(2*D + 2*Mp));
+            sumL += 3861 * Math.sin(toRad(4*D));
+            sumL += 3665 * Math.sin(toRad(2*D - 3*Mp));
+            sumL += -2689 * E * Math.sin(toRad(M - 2*Mp));
+            sumL += -2602 * Math.sin(toRad(2*D - Mp + 2*F));
+            sumL += 2390 * E * Math.sin(toRad(2*D - M - 2*Mp));
+            sumL += -2348 * Math.sin(toRad(D + Mp));
+            sumL += 2236 * E2 * Math.sin(toRad(2*D - 2*M));
+            sumL += -2120 * E * Math.sin(toRad(M + 2*Mp));
+            sumL += -2069 * E2 * Math.sin(toRad(2*M));
+            sumL += 2048 * E2 * Math.sin(toRad(2*D - 2*M - Mp));
+            sumL += -1773 * Math.sin(toRad(2*D + Mp - 2*F));
+            sumL += -1595 * Math.sin(toRad(2*D + 2*F));
+            sumL += 1215 * E * Math.sin(toRad(4*D - M - Mp));
+            sumL += -1110 * Math.sin(toRad(2*Mp + 2*F));
+            sumL += -892 * Math.sin(toRad(3*D - Mp));
+            sumL += -810 * E * Math.sin(toRad(2*D + M + Mp));
+            sumL += 759 * E * Math.sin(toRad(4*D - M - 2*Mp));
+            sumL += -713 * E2 * Math.sin(toRad(2*M - Mp));
+            sumL += -700 * E2 * Math.sin(toRad(2*D + 2*M - Mp));
+            sumL += 691 * E * Math.sin(toRad(2*D + M - 2*Mp));
+            sumL += 596 * E * Math.sin(toRad(2*D - M - 2*F));
+            sumL += 549 * Math.sin(toRad(4*D + Mp));
+            sumL += 537 * Math.sin(toRad(4*Mp));
+            sumL += 520 * E * Math.sin(toRad(4*D - M));
+            sumL += -487 * Math.sin(toRad(D - 2*Mp));
+            sumL += -399 * E * Math.sin(toRad(2*D + M - 2*F));
+            sumL += -381 * Math.sin(toRad(2*Mp - 2*F));
+            sumL += 351 * E * Math.sin(toRad(D + M + Mp));
+            sumL += -340 * Math.sin(toRad(3*D - 2*Mp));
+            sumL += 330 * Math.sin(toRad(4*D - 3*Mp));
+            sumL += 327 * E * Math.sin(toRad(2*D - M + 2*Mp));
+            sumL += -323 * E2 * Math.sin(toRad(2*M + Mp));
+            sumL += 299 * E * Math.sin(toRad(D + M - Mp));
+            sumL += 294 * Math.sin(toRad(2*D + 3*Mp));
+            
+            // Additional corrections
+            sumL += 3958 * Math.sin(toRad(A1));
+            sumL += 1962 * Math.sin(toRad(Lp - F));
+            sumL += 318 * Math.sin(toRad(A2));
+            
+            // Convert to degrees (sumL is in 0.000001 degrees)
+            const moonLong = Lp + sumL / 1000000;
+            
+            return norm360(moonLong);
         }
 
         function getSunLongitude(jd) {
@@ -2169,16 +2269,7 @@
         }
 
         function printHoroscope() {
-            const result = document.getElementById('horoscopeResult');
-            if (result.classList.contains('active')) {
-                window.print();
-            } else {
-                showToast('Please generate a horoscope first!');
-            }
-        }
-
-        // Contact Form Handler - Submit to Formspree
-        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+            const result = document.getEion(e) {
             e.preventDefault();
             const form = this;
             const formData = new FormData(form);
