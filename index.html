@@ -1217,7 +1217,7 @@
                 <br>You can send your existing horoscope for detailed analysis.
             </p>
             
-            <form class="horoscope-form" id="uploadForm" action="https://formspree.io/f/xlgenjny" method="POST" enctype="multipart/form-data">
+            <form class="horoscope-form" id="uploadForm" action="https://formspree.io/f/xlgenjny" method="POST">
                 <div class="form-group">
                     <label for="uploadName">பெயர் / Name *</label>
                     <input type="text" id="uploadName" name="uploadName" required>
@@ -1244,13 +1244,14 @@
                 </div>
                 
                 <div class="form-group full-width">
-                    <label for="horoscopeFile">ஜாதகம் பதிவேற்றம் / Upload Horoscope</label>
-                    <input type="file" id="horoscopeFile" name="horoscopeFile" 
-                        accept=".pdf,.jpg,.jpeg,.png,.doc,.docx"
-                        style="padding: 1rem; background: var(--cream); border: 2px dashed var(--gold);">
-                    <small style="color: var(--peacock-blue); margin-top: 0.5rem; display: block;">
-                        Accepted formats: PDF, JPG, PNG, DOC (Max 5MB)
-                    </small>
+                    <label>ஜாதகம் அனுப்ப / Send Horoscope File</label>
+                    <div style="padding: 1rem; background: var(--cream); border: 2px dashed var(--gold); border-radius: 8px; text-align: center;">
+                        <p style="margin-bottom: 0.5rem;">📧 ஜாதக கோப்புகளை மின்னஞ்சல் செய்யவும்:</p>
+                        <p style="font-weight: bold; color: var(--deep-maroon);">srijothidaaalayam@gmail.com</p>
+                        <small style="color: var(--peacock-blue); display: block; margin-top: 0.5rem;">
+                            PDF, JPG, PNG, DOC formats accepted (Max 5MB)
+                        </small>
+                    </div>
                 </div>
                 
                 <div class="form-group full-width">
@@ -2110,8 +2111,10 @@
             let GMST = 280.46061837 + 360.98564736629 * (jd - 2451545.0) + 0.000387933 * T * T;
             GMST = norm360(GMST);
             
-            // Local Sidereal Time
+            // Local Sidereal Time in degrees
             const LST = norm360(GMST + lon);
+            
+            // Convert to radians
             const lstRad = toRad(LST);
             
             // Obliquity of ecliptic
@@ -2119,17 +2122,11 @@
             const oblRad = toRad(obl);
             const latRad = toRad(lat);
             
-            // Ascendant formula (correct version)
-            const tanAsc = Math.cos(lstRad) / (-(Math.sin(oblRad) * Math.tan(latRad)) - (Math.cos(oblRad) * Math.sin(lstRad)));
-            let asc = toDeg(Math.atan(tanAsc));
+            // Ascendant calculation using atan2 for proper quadrant
+            const y = Math.cos(lstRad);
+            const x = -(Math.sin(oblRad) * Math.tan(latRad)) - (Math.cos(oblRad) * Math.sin(lstRad));
             
-            // Adjust quadrant based on LST
-            if (LST >= 0 && LST < 180) {
-                asc += 180;
-            }
-            if (LST >= 180 && LST < 360) {
-                asc += 360;
-            }
+            let asc = toDeg(Math.atan2(y, x));
             
             return norm360(asc);
         }
