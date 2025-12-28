@@ -1197,7 +1197,7 @@
                 <div style="margin-top: 2rem; text-align: center; padding: 2rem; background: rgba(212, 160, 23, 0.1); border-radius: 12px;">
                     <h4 style="color: var(--deep-maroon); margin-bottom: 1rem;">நேரடி தொடர்புக்கு / Direct Contact</h4>
                     <p style="font-size: 1.2rem; margin-bottom: 0.5rem;">📞 +91 9976545017</p>
-                    <p style="font-size: 1.1rem; margin-bottom: 0.5rem;">📧 srijothidaaalayam@gmail.com</p>
+                    <p style="font-size: 1.1rem; margin-bottom: 0.5rem;">📧 <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c3b0b1aaa9acb7abaaa7a2a2a2afa2baa2ae83a4aea2aaafeda0acae">[email&#160;protected]</a></p>
                     <p style="font-size: 1rem; color: var(--peacock-blue);">
                         ⏰ ஆலோசனை நேரம்: காலை 9 - இரவு 8
                         <br>Consultation Hours: 9 AM - 8 PM
@@ -1296,7 +1296,7 @@
             <div class="footer-section">
                 <h3>தொடர்பு</h3>
                 <p>📞 +91 99765 45076</p>
-                <p>📧 srijothidaaalayam@gmail.com</p>
+                <p>📧 <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e695948f8c89928e8f828787878a879f878ba6818b878f8ac885898b">[email&#160;protected]</a></p>
                 <p>📍 Pollachi, Tamil Nadu, India</p>
             </div>
         </div>
@@ -1310,7 +1310,7 @@
 
     <div class="toast" id="toast">Message sent successfully!</div>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Rasi/Nakshatra Data
         const rasiData = [
             { tamil: 'மேஷம்', english: 'Mesha (Aries)', symbol: '♈' },
@@ -1399,7 +1399,7 @@
             generateHoroscope();
         });
 
-        // 100+ Indian city coordinates for accurate Lagna calculation
+        // 300+ Indian city coordinates for accurate Lagna calculation
         const cityCoords = {
             // Tamil Nadu
             'chennai': {lat: 13.08, lon: 80.27}, 'சென்னை': {lat: 13.08, lon: 80.27},
@@ -1424,65 +1424,531 @@
             'nagapattinam': {lat: 10.77, lon: 79.84}, 'நாகப்பட்டினம்': {lat: 10.77, lon: 79.84},
             'ramanathapuram': {lat: 9.37, lon: 78.83}, 'ராமநாதபுரம்': {lat: 9.37, lon: 78.83},
             'sivakasi': {lat: 9.45, lon: 77.80}, 'சிவகாசி': {lat: 9.45, lon: 77.80},
-            'thoothukudi': {lat: 8.76, lon: 78.13}, 'தூத்துக்குடி': {lat: 8.76, lon: 78.13},
+            'thoothukudi': {lat: 8.76, lon: 78.13}, 'தூத்துக்குடி': {lat: 8.76, lon: 78.13}, 'tuticorin': {lat: 8.76, lon: 78.13},
             'hosur': {lat: 12.74, lon: 77.83}, 'ஓசூர்': {lat: 12.74, lon: 77.83},
             'namakkal': {lat: 11.22, lon: 78.17}, 'நாமக்கல்': {lat: 11.22, lon: 78.17},
             'pondicherry': {lat: 11.93, lon: 79.83}, 'puducherry': {lat: 11.93, lon: 79.83}, 'புதுச்சேரி': {lat: 11.93, lon: 79.83},
+            'komarapalayam': {lat: 11.45, lon: 77.70},
+            'theni': {lat: 10.01, lon: 77.48}, 'தேனி': {lat: 10.01, lon: 77.48},
+            'virudhunagar': {lat: 9.58, lon: 77.96}, 'விருதுநகர்': {lat: 9.58, lon: 77.96},
+            'villupuram': {lat: 11.94, lon: 79.49}, 'விழுப்புரம்': {lat: 11.94, lon: 79.49},
+            'tirupur': {lat: 11.11, lon: 77.34},
+            'ariyalur': {lat: 11.14, lon: 79.08},
+            'perambalur': {lat: 11.23, lon: 78.88},
+            'krishnagiri': {lat: 12.53, lon: 78.21},
+            'dharmapuri': {lat: 12.13, lon: 78.16},
+            'nilgiris': {lat: 11.41, lon: 76.69}, 'ooty': {lat: 11.41, lon: 76.69},
+            
             // Kerala
             'thiruvananthapuram': {lat: 8.52, lon: 76.94}, 'trivandrum': {lat: 8.52, lon: 76.94},
-            'kochi': {lat: 9.93, lon: 76.27}, 'cochin': {lat: 9.93, lon: 76.27},
+            'kochi': {lat: 9.93, lon: 76.27}, 'cochin': {lat: 9.93, lon: 76.27}, 'ernakulam': {lat: 9.98, lon: 76.29},
             'kozhikode': {lat: 11.25, lon: 75.77}, 'calicut': {lat: 11.25, lon: 75.77},
-            'thrissur': {lat: 10.52, lon: 76.21},
-            'palakkad': {lat: 10.78, lon: 76.65},
+            'thrissur': {lat: 10.52, lon: 76.21}, 'trichur': {lat: 10.52, lon: 76.21},
+            'palakkad': {lat: 10.78, lon: 76.65}, 'palghat': {lat: 10.78, lon: 76.65},
+            'kollam': {lat: 8.89, lon: 76.59}, 'quilon': {lat: 8.89, lon: 76.59},
+            'alappuzha': {lat: 9.49, lon: 76.34}, 'alleppey': {lat: 9.49, lon: 76.34},
+            'kannur': {lat: 11.87, lon: 75.37}, 'cannanore': {lat: 11.87, lon: 75.37},
+            'kottayam': {lat: 9.59, lon: 76.52},
+            'malappuram': {lat: 11.07, lon: 76.07},
+            'wayanad': {lat: 11.69, lon: 76.13},
+            'idukki': {lat: 9.85, lon: 76.97},
+            'pathanamthitta': {lat: 9.27, lon: 76.79},
+            'kasaragod': {lat: 12.50, lon: 74.99},
+            
             // Karnataka
             'bangalore': {lat: 12.97, lon: 77.59}, 'bengaluru': {lat: 12.97, lon: 77.59},
             'mysore': {lat: 12.30, lon: 76.64}, 'mysuru': {lat: 12.30, lon: 76.64},
             'mangalore': {lat: 12.91, lon: 74.86}, 'mangaluru': {lat: 12.91, lon: 74.86},
-            'hubli': {lat: 15.36, lon: 75.12},
-            'belgaum': {lat: 15.85, lon: 74.50},
-            // Andhra Pradesh & Telangana
-            'hyderabad': {lat: 17.39, lon: 78.49},
+            'hubli': {lat: 15.36, lon: 75.12}, 'hubballi': {lat: 15.36, lon: 75.12},
+            'belgaum': {lat: 15.85, lon: 74.50}, 'belagavi': {lat: 15.85, lon: 74.50},
+            'dharwad': {lat: 15.46, lon: 75.01},
+            'gulbarga': {lat: 17.33, lon: 76.83}, 'kalaburagi': {lat: 17.33, lon: 76.83},
+            'bellary': {lat: 15.14, lon: 76.92}, 'ballari': {lat: 15.14, lon: 76.92},
+            'bijapur': {lat: 16.83, lon: 75.71}, 'vijayapura': {lat: 16.83, lon: 75.71},
+            'shimoga': {lat: 13.93, lon: 75.57}, 'shivamogga': {lat: 13.93, lon: 75.57},
+            'tumkur': {lat: 13.34, lon: 77.10}, 'tumakuru': {lat: 13.34, lon: 77.10},
+            'raichur': {lat: 16.21, lon: 77.36},
+            'bidar': {lat: 17.91, lon: 77.52},
+            'davangere': {lat: 14.47, lon: 75.92},
+            'hassan': {lat: 13.01, lon: 76.10},
+            'udupi': {lat: 13.34, lon: 74.75},
+            'chitradurga': {lat: 13.95, lon: 76.40},
+            'mandya': {lat: 12.52, lon: 76.90},
+            'chikmagalur': {lat: 13.32, lon: 75.78},
+            'kolar': {lat: 13.14, lon: 78.13},
+            'ramanagara': {lat: 12.72, lon: 77.28},
+            
+            // Andhra Pradesh
+            'hyderabad': {lat: 17.39, lon: 78.49}, 'secunderabad': {lat: 17.44, lon: 78.50},
             'visakhapatnam': {lat: 17.69, lon: 83.22}, 'vizag': {lat: 17.69, lon: 83.22},
             'vijayawada': {lat: 16.51, lon: 80.65},
             'tirupati': {lat: 13.63, lon: 79.42},
             'guntur': {lat: 16.31, lon: 80.44},
             'warangal': {lat: 17.98, lon: 79.60},
-            // Other major cities
+            'nellore': {lat: 14.44, lon: 79.99},
+            'kurnool': {lat: 15.83, lon: 78.04},
+            'rajahmundry': {lat: 17.00, lon: 81.78},
+            'kakinada': {lat: 16.99, lon: 82.25},
+            'kadapa': {lat: 14.47, lon: 78.82}, 'cuddapah': {lat: 14.47, lon: 78.82},
+            'anantapur': {lat: 14.68, lon: 77.60},
+            'vizianagaram': {lat: 18.12, lon: 83.42},
+            'eluru': {lat: 16.71, lon: 81.10},
+            'ongole': {lat: 15.50, lon: 80.05},
+            'nandyal': {lat: 15.48, lon: 78.48},
+            'machilipatnam': {lat: 16.19, lon: 81.14},
+            'adoni': {lat: 15.63, lon: 77.27},
+            'tenali': {lat: 16.24, lon: 80.64},
+            'proddatur': {lat: 14.75, lon: 78.55},
+            'chittoor': {lat: 13.22, lon: 79.10},
+            'hindupur': {lat: 13.83, lon: 77.49},
+            'srikakulam': {lat: 18.30, lon: 83.90},
+            'amaravati': {lat: 16.57, lon: 80.36},
+            
+            // Telangana
+            'nizamabad': {lat: 18.67, lon: 78.09},
+            'karimnagar': {lat: 18.44, lon: 79.13},
+            'khammam': {lat: 17.25, lon: 80.15},
+            'mahbubnagar': {lat: 16.74, lon: 78.00},
+            'nalgonda': {lat: 17.05, lon: 79.27},
+            'adilabad': {lat: 19.67, lon: 78.53},
+            'suryapet': {lat: 17.14, lon: 79.63},
+            'siddipet': {lat: 18.10, lon: 78.85},
+            'miryalaguda': {lat: 16.87, lon: 79.57},
+            
+            // Maharashtra
             'mumbai': {lat: 19.08, lon: 72.88}, 'bombay': {lat: 19.08, lon: 72.88},
-            'delhi': {lat: 28.61, lon: 77.21}, 'new delhi': {lat: 28.61, lon: 77.21},
-            'kolkata': {lat: 22.57, lon: 88.36}, 'calcutta': {lat: 22.57, lon: 88.36},
-            'pune': {lat: 18.52, lon: 73.86},
-            'ahmedabad': {lat: 23.02, lon: 72.57},
-            'jaipur': {lat: 26.91, lon: 75.79},
-            'lucknow': {lat: 26.85, lon: 80.95},
-            'chandigarh': {lat: 30.73, lon: 76.78},
-            'bhopal': {lat: 23.26, lon: 77.41},
-            'patna': {lat: 25.59, lon: 85.14},
-            'bhubaneswar': {lat: 20.30, lon: 85.82},
-            'guwahati': {lat: 26.14, lon: 91.74},
-            'ranchi': {lat: 23.34, lon: 85.31},
-            'raipur': {lat: 21.25, lon: 81.63},
-            'surat': {lat: 21.17, lon: 72.83},
-            'vadodara': {lat: 22.31, lon: 73.19},
+            'pune': {lat: 18.52, lon: 73.86}, 'poona': {lat: 18.52, lon: 73.86},
             'nagpur': {lat: 21.15, lon: 79.09},
-            'indore': {lat: 22.72, lon: 75.86},
-            'varanasi': {lat: 25.32, lon: 83.01},
-            'agra': {lat: 27.18, lon: 78.02},
-            'amritsar': {lat: 31.63, lon: 74.87},
+            'thane': {lat: 19.22, lon: 72.98},
+            'nashik': {lat: 20.00, lon: 73.79}, 'nasik': {lat: 20.00, lon: 73.79},
+            'aurangabad': {lat: 19.88, lon: 75.34},
+            'solapur': {lat: 17.66, lon: 75.91}, 'sholapur': {lat: 17.66, lon: 75.91},
+            'kolhapur': {lat: 16.70, lon: 74.24},
+            'amravati': {lat: 20.93, lon: 77.75},
+            'navi mumbai': {lat: 19.03, lon: 73.03},
+            'sangli': {lat: 16.86, lon: 74.57},
+            'jalgaon': {lat: 21.01, lon: 75.56},
+            'akola': {lat: 20.71, lon: 77.00},
+            'latur': {lat: 18.40, lon: 76.57},
+            'dhule': {lat: 20.90, lon: 74.78},
+            'ahmednagar': {lat: 19.09, lon: 74.74},
+            'chandrapur': {lat: 19.95, lon: 79.30},
+            'parbhani': {lat: 19.27, lon: 76.78},
+            'ichalkaranji': {lat: 16.69, lon: 74.46},
+            'jalna': {lat: 19.84, lon: 75.88},
+            'ambarnath': {lat: 19.19, lon: 73.19},
+            'bhiwandi': {lat: 19.30, lon: 73.06},
+            'panvel': {lat: 18.99, lon: 73.11},
+            'satara': {lat: 17.69, lon: 74.00},
+            'beed': {lat: 18.99, lon: 75.76},
+            'yavatmal': {lat: 20.39, lon: 78.12},
+            'osmanabad': {lat: 18.18, lon: 76.04},
+            'nanded': {lat: 19.16, lon: 77.31},
+            'wardha': {lat: 20.74, lon: 78.60},
+            'gondia': {lat: 21.46, lon: 80.20},
+            
+            // Gujarat
+            'ahmedabad': {lat: 23.02, lon: 72.57},
+            'surat': {lat: 21.17, lon: 72.83},
+            'vadodara': {lat: 22.31, lon: 73.19}, 'baroda': {lat: 22.31, lon: 73.19},
+            'rajkot': {lat: 22.30, lon: 70.80},
+            'bhavnagar': {lat: 21.77, lon: 72.15},
+            'jamnagar': {lat: 22.47, lon: 70.07},
+            'junagadh': {lat: 21.52, lon: 70.46},
+            'gandhinagar': {lat: 23.22, lon: 72.64},
+            'gandhidham': {lat: 23.08, lon: 70.13},
+            'anand': {lat: 22.56, lon: 72.93},
+            'navsari': {lat: 20.85, lon: 72.92},
+            'morbi': {lat: 22.82, lon: 70.83},
+            'nadiad': {lat: 22.69, lon: 72.86},
+            'surendranagar': {lat: 22.73, lon: 71.68},
+            'bharuch': {lat: 21.71, lon: 72.99},
+            'mehsana': {lat: 23.59, lon: 72.38},
+            'bhuj': {lat: 23.25, lon: 69.67},
+            'porbandar': {lat: 21.64, lon: 69.61},
+            'palanpur': {lat: 24.17, lon: 72.43},
+            'valsad': {lat: 20.61, lon: 72.93},
+            'vapi': {lat: 20.37, lon: 72.91},
+            'gondal': {lat: 21.96, lon: 70.80},
+            'veraval': {lat: 20.91, lon: 70.37},
+            'godhra': {lat: 22.78, lon: 73.62},
+            'patan': {lat: 23.85, lon: 72.13},
+            'kalol': {lat: 23.24, lon: 72.50},
+            'dahod': {lat: 22.84, lon: 74.26},
+            'botad': {lat: 22.17, lon: 71.67},
+            'amreli': {lat: 21.60, lon: 71.22},
+            
+            // Rajasthan
+            'jaipur': {lat: 26.91, lon: 75.79},
             'jodhpur': {lat: 26.29, lon: 73.02},
             'udaipur': {lat: 24.58, lon: 73.68},
-            'dehradun': {lat: 30.32, lon: 78.03},
+            'kota': {lat: 25.18, lon: 75.86},
+            'bikaner': {lat: 28.02, lon: 73.31},
+            'ajmer': {lat: 26.45, lon: 74.64},
+            'bhilwara': {lat: 25.35, lon: 74.64},
+            'alwar': {lat: 27.56, lon: 76.63},
+            'bharatpur': {lat: 27.22, lon: 77.50},
+            'sikar': {lat: 27.62, lon: 75.14},
+            'pali': {lat: 25.77, lon: 73.32},
+            'sri ganganagar': {lat: 29.91, lon: 73.88},
+            'jhunjhunu': {lat: 28.13, lon: 75.40},
+            'churu': {lat: 28.30, lon: 74.97},
+            'tonk': {lat: 26.17, lon: 75.79},
+            'kishangarh': {lat: 26.59, lon: 74.85},
+            'beawar': {lat: 26.10, lon: 74.32},
+            'hanumangarh': {lat: 29.58, lon: 74.33},
+            'dhaulpur': {lat: 26.70, lon: 77.89},
+            'gangapur city': {lat: 26.47, lon: 76.72},
+            'sawai madhopur': {lat: 26.02, lon: 76.35},
+            'chittorgarh': {lat: 24.88, lon: 74.63},
+            'nagaur': {lat: 27.20, lon: 73.73},
+            'bundi': {lat: 25.44, lon: 75.64},
+            'rajsamand': {lat: 25.07, lon: 73.88},
+            'barmer': {lat: 25.75, lon: 71.39},
+            'jaisalmer': {lat: 26.92, lon: 70.90},
+            'sirohi': {lat: 24.88, lon: 72.86},
+            'mount abu': {lat: 24.59, lon: 72.71},
+            
+            // Madhya Pradesh
+            'bhopal': {lat: 23.26, lon: 77.41},
+            'indore': {lat: 22.72, lon: 75.86},
+            'jabalpur': {lat: 23.18, lon: 79.93},
+            'gwalior': {lat: 26.22, lon: 78.18},
+            'ujjain': {lat: 23.18, lon: 75.79},
+            'sagar': {lat: 23.84, lon: 78.74},
+            'dewas': {lat: 22.97, lon: 76.05},
+            'satna': {lat: 24.58, lon: 80.83},
+            'ratlam': {lat: 23.33, lon: 75.04},
+            'rewa': {lat: 24.53, lon: 81.30},
+            'murwara': {lat: 23.84, lon: 80.39}, 'katni': {lat: 23.84, lon: 80.39},
+            'singrauli': {lat: 24.20, lon: 82.67},
+            'burhanpur': {lat: 21.31, lon: 76.23},
+            'khandwa': {lat: 21.83, lon: 76.35},
+            'bhind': {lat: 26.56, lon: 78.79},
+            'chhindwara': {lat: 22.06, lon: 78.94},
+            'guna': {lat: 24.65, lon: 77.32},
+            'shivpuri': {lat: 25.43, lon: 77.66},
+            'vidisha': {lat: 23.53, lon: 77.81},
+            'damoh': {lat: 23.84, lon: 79.44},
+            'mandsaur': {lat: 24.07, lon: 75.07},
+            'khargone': {lat: 21.82, lon: 75.62},
+            'neemuch': {lat: 24.47, lon: 74.87},
+            'pithampur': {lat: 22.62, lon: 75.69},
+            'hoshangabad': {lat: 22.75, lon: 77.73},
+            'itarsi': {lat: 22.61, lon: 77.76},
+            
+            // Uttar Pradesh
+            'lucknow': {lat: 26.85, lon: 80.95},
+            'kanpur': {lat: 26.45, lon: 80.35},
+            'agra': {lat: 27.18, lon: 78.02},
+            'varanasi': {lat: 25.32, lon: 83.01}, 'banaras': {lat: 25.32, lon: 83.01}, 'kashi': {lat: 25.32, lon: 83.01},
+            'allahabad': {lat: 25.43, lon: 81.85}, 'prayagraj': {lat: 25.43, lon: 81.85},
+            'meerut': {lat: 28.98, lon: 77.71},
+            'bareilly': {lat: 28.36, lon: 79.42},
+            'aligarh': {lat: 27.88, lon: 78.08},
+            'moradabad': {lat: 28.84, lon: 78.78},
+            'saharanpur': {lat: 29.97, lon: 77.55},
+            'gorakhpur': {lat: 26.76, lon: 83.37},
+            'noida': {lat: 28.57, lon: 77.32},
+            'firozabad': {lat: 27.15, lon: 78.39},
+            'jhansi': {lat: 25.45, lon: 78.57},
+            'muzaffarnagar': {lat: 29.47, lon: 77.70},
+            'mathura': {lat: 27.49, lon: 77.67},
+            'budaun': {lat: 28.04, lon: 79.12},
+            'rampur': {lat: 28.81, lon: 79.03},
+            'shahjahanpur': {lat: 27.88, lon: 79.91},
+            'farrukhabad': {lat: 27.39, lon: 79.58},
+            'ayodhya': {lat: 26.80, lon: 82.20}, 'faizabad': {lat: 26.77, lon: 82.15},
+            'sultanpur': {lat: 26.27, lon: 82.07},
+            'jaunpur': {lat: 25.75, lon: 82.68},
+            'etawah': {lat: 26.78, lon: 79.02},
+            'mirzapur': {lat: 25.15, lon: 82.57},
+            'hapur': {lat: 28.73, lon: 77.78},
+            'sambhal': {lat: 28.59, lon: 78.57},
+            'amroha': {lat: 28.90, lon: 78.47},
+            'hardoi': {lat: 27.40, lon: 80.13},
+            'fatehpur': {lat: 25.93, lon: 80.81},
+            'raebareli': {lat: 26.23, lon: 81.23},
+            'orai': {lat: 25.99, lon: 79.45},
+            'sitapur': {lat: 27.57, lon: 80.68},
+            'bahraich': {lat: 27.57, lon: 81.60},
+            'unnao': {lat: 26.55, lon: 80.49},
+            'lakhimpur': {lat: 27.95, lon: 80.78},
+            'banda': {lat: 25.48, lon: 80.34},
+            'gonda': {lat: 27.13, lon: 81.97},
+            'basti': {lat: 26.79, lon: 82.76},
+            'deoria': {lat: 26.50, lon: 83.78},
+            'azamgarh': {lat: 26.07, lon: 83.19},
+            'bijnor': {lat: 29.37, lon: 78.14},
+            'ballia': {lat: 25.76, lon: 84.15},
+            'ghazipur': {lat: 25.58, lon: 83.58},
+            'mainpuri': {lat: 27.23, lon: 79.02},
+            'etah': {lat: 27.63, lon: 78.67},
+            'greater noida': {lat: 28.47, lon: 77.50},
+            'ghaziabad': {lat: 28.67, lon: 77.44},
+            
+            // Delhi NCR
+            'delhi': {lat: 28.61, lon: 77.21}, 'new delhi': {lat: 28.61, lon: 77.21},
+            'gurgaon': {lat: 28.46, lon: 77.03}, 'gurugram': {lat: 28.46, lon: 77.03},
+            'faridabad': {lat: 28.41, lon: 77.31},
+            
+            // Bihar
+            'patna': {lat: 25.59, lon: 85.14},
+            'gaya': {lat: 24.80, lon: 85.01},
+            'bhagalpur': {lat: 25.24, lon: 86.98},
+            'muzaffarpur': {lat: 26.12, lon: 85.40},
+            'purnia': {lat: 25.78, lon: 87.47},
+            'darbhanga': {lat: 26.17, lon: 85.90},
+            'bihar sharif': {lat: 25.20, lon: 85.52},
+            'arrah': {lat: 25.56, lon: 84.66},
+            'begusarai': {lat: 25.42, lon: 86.13},
+            'katihar': {lat: 25.54, lon: 87.58},
+            'munger': {lat: 25.38, lon: 86.47},
+            'chhapra': {lat: 25.78, lon: 84.75},
+            'saharsa': {lat: 25.88, lon: 86.60},
+            'sasaram': {lat: 24.95, lon: 84.03},
+            'hajipur': {lat: 25.69, lon: 85.21},
+            'dehri': {lat: 24.91, lon: 84.18},
+            'siwan': {lat: 26.22, lon: 84.36},
+            'motihari': {lat: 26.65, lon: 84.92},
+            'nawada': {lat: 24.89, lon: 85.54},
+            'bagaha': {lat: 27.10, lon: 84.09},
+            'buxar': {lat: 25.56, lon: 83.98},
+            'kishanganj': {lat: 26.10, lon: 87.95},
+            'sitamarhi': {lat: 26.60, lon: 85.49},
+            'jamalpur': {lat: 25.31, lon: 86.49},
+            'jehanabad': {lat: 25.21, lon: 84.99},
+            'aurangabad': {lat: 24.75, lon: 84.37},
+            'bodh gaya': {lat: 24.70, lon: 84.99},
+            
+            // West Bengal
+            'kolkata': {lat: 22.57, lon: 88.36}, 'calcutta': {lat: 22.57, lon: 88.36},
+            'howrah': {lat: 22.59, lon: 88.26},
+            'durgapur': {lat: 23.55, lon: 87.32},
+            'asansol': {lat: 23.68, lon: 86.99},
+            'siliguri': {lat: 26.71, lon: 88.43},
+            'bardhaman': {lat: 23.24, lon: 87.86}, 'burdwan': {lat: 23.24, lon: 87.86},
+            'malda': {lat: 25.01, lon: 88.14},
+            'baharampur': {lat: 24.10, lon: 88.25},
+            'habra': {lat: 22.84, lon: 88.66},
+            'kharagpur': {lat: 22.33, lon: 87.32},
+            'shantiniketan': {lat: 23.68, lon: 87.69},
+            'raiganj': {lat: 25.62, lon: 88.12},
+            'haldia': {lat: 22.06, lon: 88.06},
+            'raniganj': {lat: 23.62, lon: 87.13},
+            'krishnanagar': {lat: 23.40, lon: 88.50},
+            'nabadwip': {lat: 23.41, lon: 88.37},
+            'medinipur': {lat: 22.43, lon: 87.32}, 'midnapore': {lat: 22.43, lon: 87.32},
+            'jalpaiguri': {lat: 26.52, lon: 88.73},
+            'balurghat': {lat: 25.22, lon: 88.77},
+            'basirhat': {lat: 22.65, lon: 88.87},
+            'bankura': {lat: 23.23, lon: 87.07},
+            'darjeeling': {lat: 27.04, lon: 88.26},
+            'cooch behar': {lat: 26.32, lon: 89.45},
+            'purulia': {lat: 23.33, lon: 86.37},
+            'contai': {lat: 21.79, lon: 87.75},
+            'tamluk': {lat: 22.30, lon: 87.92},
+            'alipurduar': {lat: 26.49, lon: 89.53},
+            
+            // Odisha
+            'bhubaneswar': {lat: 20.30, lon: 85.82},
+            'cuttack': {lat: 20.46, lon: 85.88},
+            'rourkela': {lat: 22.26, lon: 84.88},
+            'berhampur': {lat: 19.31, lon: 84.79}, 'brahmapur': {lat: 19.31, lon: 84.79},
+            'sambalpur': {lat: 21.47, lon: 83.97},
+            'puri': {lat: 19.80, lon: 85.82},
+            'balasore': {lat: 21.49, lon: 86.93}, 'baleshwar': {lat: 21.49, lon: 86.93},
+            'bhadrak': {lat: 21.06, lon: 86.52},
+            'baripada': {lat: 21.94, lon: 86.72},
+            'jharsuguda': {lat: 21.86, lon: 84.01},
+            'jeypore': {lat: 18.86, lon: 82.57},
+            'bargarh': {lat: 21.33, lon: 83.62},
+            'paradip': {lat: 20.32, lon: 86.61},
+            'bhawanipatna': {lat: 19.91, lon: 83.17},
+            'dhenkanal': {lat: 20.65, lon: 85.60},
+            'kendrapara': {lat: 20.50, lon: 86.42},
+            'angul': {lat: 20.84, lon: 85.10},
+            'rayagada': {lat: 19.17, lon: 83.42},
+            'jajpur': {lat: 20.85, lon: 86.33},
+            'jagatsinghpur': {lat: 20.26, lon: 86.17},
+            'konark': {lat: 19.90, lon: 86.11},
+            
+            // Jharkhand
+            'ranchi': {lat: 23.34, lon: 85.31},
+            'jamshedpur': {lat: 22.80, lon: 86.20},
+            'dhanbad': {lat: 23.79, lon: 86.43},
+            'bokaro': {lat: 23.67, lon: 86.15}, 'bokaro steel city': {lat: 23.67, lon: 86.15},
+            'deoghar': {lat: 24.48, lon: 86.70},
+            'hazaribagh': {lat: 23.99, lon: 85.36},
+            'giridih': {lat: 24.19, lon: 86.30},
+            'ramgarh': {lat: 23.63, lon: 85.52},
+            'medininagar': {lat: 24.21, lon: 84.07}, 'daltonganj': {lat: 24.21, lon: 84.07},
+            'chirkunda': {lat: 23.75, lon: 86.73},
+            'chaibasa': {lat: 22.55, lon: 85.80},
+            'dumka': {lat: 24.27, lon: 87.25},
+            'phusro': {lat: 23.77, lon: 86.01},
+            
+            // Chhattisgarh
+            'raipur': {lat: 21.25, lon: 81.63},
+            'bhilai': {lat: 21.21, lon: 81.38},
+            'bilaspur': {lat: 22.08, lon: 82.16},
+            'korba': {lat: 22.35, lon: 82.68},
+            'durg': {lat: 21.19, lon: 81.28},
+            'rajnandgaon': {lat: 21.10, lon: 81.03},
+            'jagdalpur': {lat: 19.08, lon: 82.03},
+            'raigarh': {lat: 21.90, lon: 83.40},
+            'ambikapur': {lat: 23.12, lon: 83.20},
+            'mahasamund': {lat: 21.11, lon: 82.10},
+            'dhamtari': {lat: 20.71, lon: 81.55},
+            'chirmiri': {lat: 23.21, lon: 82.32},
+            'kawardha': {lat: 22.01, lon: 81.23},
+            
+            // Punjab
+            'ludhiana': {lat: 30.90, lon: 75.86},
+            'amritsar': {lat: 31.63, lon: 74.87},
+            'jalandhar': {lat: 31.33, lon: 75.58},
+            'patiala': {lat: 30.34, lon: 76.39},
+            'bathinda': {lat: 30.21, lon: 74.95},
+            'mohali': {lat: 30.70, lon: 76.72}, 'sas nagar': {lat: 30.70, lon: 76.72},
+            'pathankot': {lat: 32.27, lon: 75.65},
+            'hoshiarpur': {lat: 31.53, lon: 75.91},
+            'batala': {lat: 31.82, lon: 75.20},
+            'moga': {lat: 30.82, lon: 75.17},
+            'abohar': {lat: 30.15, lon: 74.20},
+            'malerkotla': {lat: 30.53, lon: 75.88},
+            'khanna': {lat: 30.70, lon: 76.22},
+            'phagwara': {lat: 31.22, lon: 75.77},
+            'muktsar': {lat: 30.47, lon: 74.52},
+            'barnala': {lat: 30.38, lon: 75.55},
+            'rajpura': {lat: 30.48, lon: 76.59},
+            'firozpur': {lat: 30.93, lon: 74.62},
+            'kapurthala': {lat: 31.38, lon: 75.38},
+            'mansa': {lat: 29.99, lon: 75.40},
+            'sangrur': {lat: 30.25, lon: 75.84},
+            'faridkot': {lat: 30.68, lon: 74.76},
+            'fazilka': {lat: 30.40, lon: 74.03},
+            'gurdaspur': {lat: 32.04, lon: 75.40},
+            'nabha': {lat: 30.38, lon: 76.15},
+            'zirakpur': {lat: 30.64, lon: 76.82},
+            
+            // Haryana
+            'faridabad': {lat: 28.41, lon: 77.31},
+            'gurgaon': {lat: 28.46, lon: 77.03}, 'gurugram': {lat: 28.46, lon: 77.03},
+            'panipat': {lat: 29.39, lon: 76.97},
+            'ambala': {lat: 30.38, lon: 76.78},
+            'yamunanagar': {lat: 30.13, lon: 77.29},
+            'rohtak': {lat: 28.89, lon: 76.57},
+            'hisar': {lat: 29.15, lon: 75.72},
+            'karnal': {lat: 29.69, lon: 76.98},
+            'sonipat': {lat: 28.99, lon: 77.02},
+            'panchkula': {lat: 30.69, lon: 76.86},
+            'bhiwani': {lat: 28.78, lon: 76.13},
+            'sirsa': {lat: 29.53, lon: 75.03},
+            'jind': {lat: 29.32, lon: 76.32},
+            'thanesar': {lat: 29.97, lon: 76.82},
+            'kaithal': {lat: 29.80, lon: 76.40},
+            'palwal': {lat: 28.14, lon: 77.33},
+            'rewari': {lat: 28.19, lon: 76.62},
+            'hansi': {lat: 29.10, lon: 75.97},
+            'narnaul': {lat: 28.04, lon: 76.11},
+            'fatehabad': {lat: 29.52, lon: 75.45},
+            'bahadurgarh': {lat: 28.69, lon: 76.93},
+            
+            // Himachal Pradesh
             'shimla': {lat: 31.10, lon: 77.17},
+            'dharamshala': {lat: 32.22, lon: 76.32},
+            'solan': {lat: 30.91, lon: 77.10},
+            'mandi': {lat: 31.71, lon: 76.93},
+            'palampur': {lat: 32.11, lon: 76.54},
+            'baddi': {lat: 30.96, lon: 76.79},
+            'nahan': {lat: 30.56, lon: 77.30},
+            'kullu': {lat: 31.96, lon: 77.11},
+            'manali': {lat: 32.24, lon: 77.19},
+            'una': {lat: 31.47, lon: 76.27},
+            'hamirpur': {lat: 31.69, lon: 76.52},
+            'bilaspur': {lat: 31.34, lon: 76.76},
+            'chamba': {lat: 32.56, lon: 76.13},
+            'kangra': {lat: 32.10, lon: 76.27},
+            'dalhousie': {lat: 32.54, lon: 75.97},
+            'kasauli': {lat: 30.90, lon: 76.97},
+            
+            // Uttarakhand
+            'dehradun': {lat: 30.32, lon: 78.03},
+            'haridwar': {lat: 29.95, lon: 78.16},
+            'rishikesh': {lat: 30.09, lon: 78.27},
+            'haldwani': {lat: 29.22, lon: 79.51},
+            'roorkee': {lat: 29.87, lon: 77.89},
+            'kashipur': {lat: 29.21, lon: 78.96},
+            'rudrapur': {lat: 28.97, lon: 79.40},
+            'nainital': {lat: 29.38, lon: 79.45},
+            'mussoorie': {lat: 30.45, lon: 78.08},
+            'kotdwar': {lat: 29.75, lon: 78.53},
+            'almora': {lat: 29.60, lon: 79.66},
+            'pithoragarh': {lat: 29.58, lon: 80.22},
+            'tehri': {lat: 30.39, lon: 78.48},
+            'ramnagar': {lat: 29.40, lon: 79.13},
+            'jaspur': {lat: 29.28, lon: 78.82},
+            
+            // Jammu & Kashmir
             'jammu': {lat: 32.73, lon: 74.87},
-            'srinagar': {lat: 34.08, lon: 74.80}
+            'srinagar': {lat: 34.08, lon: 74.80},
+            'anantnag': {lat: 33.73, lon: 75.15},
+            'baramulla': {lat: 34.20, lon: 74.34},
+            'sopore': {lat: 34.30, lon: 74.47},
+            'kathua': {lat: 32.37, lon: 75.52},
+            'udhampur': {lat: 32.92, lon: 75.13},
+            'poonch': {lat: 33.77, lon: 74.09},
+            'rajouri': {lat: 33.38, lon: 74.31},
+            'kupwara': {lat: 34.53, lon: 74.26},
+            'leh': {lat: 34.16, lon: 77.58},
+            'kargil': {lat: 34.55, lon: 76.13},
+            
+            // Chandigarh
+            'chandigarh': {lat: 30.73, lon: 76.78},
+            
+            // Northeast India
+            'guwahati': {lat: 26.14, lon: 91.74},
+            'dispur': {lat: 26.14, lon: 91.79},
+            'silchar': {lat: 24.83, lon: 92.80},
+            'dibrugarh': {lat: 27.47, lon: 94.91},
+            'jorhat': {lat: 26.76, lon: 94.21},
+            'nagaon': {lat: 26.35, lon: 92.69},
+            'tinsukia': {lat: 27.49, lon: 95.36},
+            'tezpur': {lat: 26.63, lon: 92.80},
+            'bongaigaon': {lat: 26.48, lon: 90.56},
+            'shillong': {lat: 25.58, lon: 91.88},
+            'imphal': {lat: 24.82, lon: 93.95},
+            'aizawl': {lat: 23.73, lon: 92.72},
+            'agartala': {lat: 23.83, lon: 91.28},
+            'itanagar': {lat: 27.10, lon: 93.62},
+            'kohima': {lat: 25.67, lon: 94.12},
+            'dimapur': {lat: 25.91, lon: 93.73},
+            'gangtok': {lat: 27.33, lon: 88.62},
+            
+            // Goa
+            'panaji': {lat: 15.50, lon: 73.83}, 'panjim': {lat: 15.50, lon: 73.83},
+            'margao': {lat: 15.28, lon: 73.96},
+            'vasco da gama': {lat: 15.40, lon: 73.81}, 'vasco': {lat: 15.40, lon: 73.81},
+            'mapusa': {lat: 15.59, lon: 73.81},
+            'ponda': {lat: 15.40, lon: 74.00}
         };
 
         function getCoordinates(place) {
+            if (!place) return {lat: 13.08, lon: 80.27}; // Default: Chennai
             const p = place.toLowerCase().trim();
+            
+            // Direct match first
+            if (cityCoords[p]) return cityCoords[p];
+            
+            // Then check if place contains any city name
             for (const city in cityCoords) {
-                if (p.includes(city)) return cityCoords[city];
+                if (p.includes(city) || city.includes(p)) {
+                    return cityCoords[city];
+                }
             }
-            return {lat: 13.08, lon: 80.27}; // Default: Chennai
+            
+            // Default to Chennai if not found
+            return {lat: 13.08, lon: 80.27};
         }
 
         // Astronomical calculation functions
@@ -1758,15 +2224,4 @@
                         entry.target.style.transform = 'translateY(0)';
                     }
                 });
-            }, { threshold: 0.1 });
-
-            document.querySelectorAll('section').forEach(section => {
-                section.style.opacity = '0';
-                section.style.transform = 'translateY(30px)';
-                section.style.transition = 'all 0.6s ease';
-                observer.observe(section);
-            });
-        });
-    </script>
-</body>
-</html>
+      
