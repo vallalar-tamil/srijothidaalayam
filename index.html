@@ -1527,12 +1527,33 @@
 
         function getLagna(jd, lat, lon) {
             const T = (jd - 2451545.0) / 36525.0;
-            let GMST = norm360(280.4606 + 360.9856 * (jd - 2451545.0));
+            
+            // Calculate GMST (Greenwich Mean Sidereal Time) in degrees
+            let GMST = 280.46061837 + 360.98564736629 * (jd - 2451545.0) + 0.000387933 * T * T;
+            GMST = norm360(GMST);
+            
+            // Local Sidereal Time
             const LST = norm360(GMST + lon);
-            const obl = 23.4393 - 0.013 * T;
-            const y = -Math.cos(toRad(LST));
-            const x = Math.sin(toRad(obl)) * Math.tan(toRad(lat)) + Math.cos(toRad(obl)) * Math.sin(toRad(LST));
-            return norm360(toDeg(Math.atan2(y, x)));
+            const lstRad = toRad(LST);
+            
+            // Obliquity of ecliptic
+            const obl = 23.439291 - 0.0130042 * T;
+            const oblRad = toRad(obl);
+            const latRad = toRad(lat);
+            
+            // Ascendant formula (correct version)
+            const tanAsc = Math.cos(lstRad) / (-(Math.sin(oblRad) * Math.tan(latRad)) - (Math.cos(oblRad) * Math.sin(lstRad)));
+            let asc = toDeg(Math.atan(tanAsc));
+            
+            // Adjust quadrant based on LST
+            if (LST >= 0 && LST < 180) {
+                asc += 180;
+            }
+            if (LST >= 180 && LST < 360) {
+                asc += 360;
+            }
+            
+            return norm360(asc);
         }
 
         function generateHoroscope() {
@@ -1619,10 +1640,11 @@
             // Dasa from Nakshatra lord (Vimshottari)
             const dasaIndex = nakshatraIndex % 9;
 
-            // Display results
+            // Display results - use original birth date for display
+            const [origYear, origMonth, origDay] = birthDate.split('-').map(Number);
             document.getElementById('resultName').textContent = name;
             document.getElementById('resultDetails').textContent = 
-                `பிறந்த தேதி: ${new Date(birthDate).toLocaleDateString('ta-IN')} | நேரம்: ${birthTime} | இடம்: ${birthPlace}`;
+                `பிறந்த தேதி: ${origDay}/${origMonth}/${origYear} | நேரம்: ${birthTime} | இடம்: ${birthPlace}`;
 
             document.getElementById('resultRasi').textContent = 
                 `${rasiData[rasiIndex].tamil} ${rasiData[rasiIndex].symbol}`;
