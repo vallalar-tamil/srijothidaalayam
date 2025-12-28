@@ -663,9 +663,10 @@
 
             /* Sections - More padding, larger text */
             section {
-                padding: 1.5rem 1rem;
+                padding: 1rem 0.8rem;
                 margin: 0.5rem;
                 border-radius: 12px;
+                overflow-x: hidden;
             }
 
             .section-title {
@@ -733,39 +734,42 @@
                 font-size: 0.95rem;
             }
 
-            /* Rasi Chart - Compact but readable */
+            /* Rasi Chart - Fit mobile screen */
             .rasi-chart {
-                max-width: 100%;
+                max-width: calc(100vw - 3rem);
                 width: 100%;
                 margin: 1rem auto;
                 box-sizing: border-box;
+                font-size: 0.6rem;
             }
 
             .rasi-box {
-                padding: 0.3rem;
-                min-height: 50px;
-                font-size: 0.65rem;
+                padding: 0.2rem;
+                min-height: 45px;
+                font-size: 0.6rem;
                 word-break: break-word;
             }
 
             .rasi-box.center {
-                font-size: 0.6rem;
-                padding: 0.3rem;
+                font-size: 0.55rem;
+                padding: 0.2rem;
             }
 
             .rasi-name {
-                font-size: 0.65rem;
+                font-size: 0.6rem;
             }
 
             .planet-info {
-                font-size: 0.55rem;
+                font-size: 0.5rem;
             }
 
             /* Horoscope Result */
             .horoscope-result {
-                padding: 1rem;
-                margin: 1rem 0;
+                padding: 0.8rem;
+                margin: 0.5rem 0;
                 overflow-x: hidden;
+                max-width: 100%;
+                box-sizing: border-box;
             }
 
             .horoscope-result h2 {
@@ -1395,7 +1399,7 @@
                 <div style="margin-top: 2rem; text-align: center; padding: 2rem; background: rgba(212, 160, 23, 0.1); border-radius: 12px;">
                     <h4 style="color: var(--deep-maroon); margin-bottom: 1rem;">நேரடி தொடர்புக்கு / Direct Contact</h4>
                     <p style="font-size: 1.2rem; margin-bottom: 0.5rem;">📞 +91 9976545017</p>
-                    <p style="font-size: 1.1rem; margin-bottom: 0.5rem;">📧 <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="82f1f0ebe8edf6eaebe6e3e3e3eee3fbe3efc2e5efe3ebeeace1edef">[email&#160;protected]</a></p>
+                    <p style="font-size: 1.1rem; margin-bottom: 0.5rem;">📧 srijothidaaalayam@gmail.com</p>
                     <p style="font-size: 1rem; color: var(--peacock-blue);">
                         ⏰ ஆலோசனை நேரம்: காலை 9 - இரவு 8
                         <br>Consultation Hours: 9 AM - 8 PM
@@ -1494,7 +1498,7 @@
             <div class="footer-section">
                 <h3>தொடர்பு</h3>
                 <p>📞 +91 99765 45076</p>
-                <p>📧 <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c9babba0a3a6bda1a0ada8a8a8a5a8b0a8a489aea4a8a0a5e7aaa6a4">[email&#160;protected]</a></p>
+                <p>📧 srijothidaaalayam@gmail.com</p>
                 <p>📍 Pollachi, Tamil Nadu, India</p>
             </div>
         </div>
@@ -1508,7 +1512,7 @@
 
     <div class="toast" id="toast">Message sent successfully!</div>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
         // Rasi/Nakshatra Data
         const rasiData = [
             { tamil: 'மேஷம்', english: 'Mesha (Aries)', symbol: '♈' },
