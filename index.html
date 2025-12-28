@@ -1197,7 +1197,7 @@
                 <div style="margin-top: 2rem; text-align: center; padding: 2rem; background: rgba(212, 160, 23, 0.1); border-radius: 12px;">
                     <h4 style="color: var(--deep-maroon); margin-bottom: 1rem;">நேரடி தொடர்புக்கு / Direct Contact</h4>
                     <p style="font-size: 1.2rem; margin-bottom: 0.5rem;">📞 +91 9976545017</p>
-                    <p style="font-size: 1.1rem; margin-bottom: 0.5rem;">📧 <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="4a39382320253e22232e2b2b2b262b332b270a2d272b232664292527">[email&#160;protected]</a></p>
+                    <p style="font-size: 1.1rem; margin-bottom: 0.5rem;">📧 srijothidaaalayam@gmail.com</p>
                     <p style="font-size: 1rem; color: var(--peacock-blue);">
                         ⏰ ஆலோசனை நேரம்: காலை 9 - இரவு 8
                         <br>Consultation Hours: 9 AM - 8 PM
@@ -1244,14 +1244,13 @@
                 </div>
                 
                 <div class="form-group full-width">
-                    <label>ஜாதகம் அனுப்ப / Send Horoscope File</label>
-                    <div style="padding: 1rem; background: var(--cream); border: 2px dashed var(--gold); border-radius: 8px; text-align: center;">
-                        <p style="margin-bottom: 0.5rem;">📧 ஜாதக கோப்புகளை மின்னஞ்சல் செய்யவும்:</p>
-                        <p style="font-weight: bold; color: var(--deep-maroon);">srijothidaaalayam@gmail.com</p>
-                        <small style="color: var(--peacock-blue); display: block; margin-top: 0.5rem;">
-                            PDF, JPG, PNG, DOC formats accepted (Max 5MB)
-                        </small>
-                    </div>
+                    <label for="horoscopeFile">ஜாதகம் பதிவேற்றம் / Upload Horoscope</label>
+                    <input type="file" id="horoscopeFile" name="horoscopeFile" 
+                        accept=".pdf,.jpg,.jpeg,.png,.doc,.docx"
+                        style="padding: 1rem; background: var(--cream); border: 2px dashed var(--gold);">
+                    <small style="color: var(--peacock-blue); margin-top: 0.5rem; display: block;">
+                        Accepted formats: PDF, JPG, PNG, DOC (Max 5MB)
+                    </small>
                 </div>
                 
                 <div class="form-group full-width">
@@ -1297,7 +1296,7 @@
             <div class="footer-section">
                 <h3>தொடர்பு</h3>
                 <p>📞 +91 99765 45076</p>
-                <p>📧 <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="acdfdec5c6c3d8c4c5c8cdcdcdc0cdd5cdc1eccbc1cdc5c082cfc3c1">[email&#160;protected]</a></p>
+                <p>📧 srijothidaaalayam@gmail.com</p>
                 <p>📍 Pollachi, Tamil Nadu, India</p>
             </div>
         </div>
@@ -1311,7 +1310,7 @@
 
     <div class="toast" id="toast">Message sent successfully!</div>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
         // Rasi/Nakshatra Data
         const rasiData = [
             { tamil: 'மேஷம்', english: 'Mesha (Aries)', symbol: '♈' },
@@ -2131,7 +2130,7 @@
             return norm360(asc);
         }
 
-        function generateHoroscope() {
+        async function generateHoroscope() {
             const name = document.getElementById('fullName').value;
             const birthDate = document.getElementById('birthDate').value;
             const birthTime = document.getElementById('birthTime').value;
@@ -2142,80 +2141,221 @@
                 return;
             }
 
+            showToast('ஜாதகம் கணக்கிடப்படுகிறது... / Calculating...');
+
             // Get coordinates for the birth place
             const coords = getCoordinates(birthPlace);
 
+            // Parse date and time
+            const [year, month, day] = birthDate.split('-').map(Number);
+            const [hour, minute] = birthTime.split(':').map(Number);
+
+            // Format for VedAstro API: HH:mm/DD/MM/YYYY/+05:30
+            const timeStr = `${String(hour).padStart(2,'0')}:${String(minute).padStart(2,'0')}/${String(day).padStart(2,'0')}/${String(month).padStart(2,'0')}/${year}/+05:30`;
+            const locStr = `${coords.lat},${coords.lon}`;
+
+            try {
+                // Call VedAstro API for planetary positions
+                const planetUrl = `https://api.vedastro.org/Calculate/AllPlanetData/PlanetName/All/Time/${timeStr}/Location/${locStr}`;
+                const planetResponse = await fetch(planetUrl);
+                const planetData = await planetResponse.json();
+
+                // Call VedAstro API for House/Lagna data
+                const houseUrl = `https://api.vedastro.org/Calculate/AllHouseData/HouseName/All/Time/${timeStr}/Location/${locStr}`;
+                const houseResponse = await fetch(houseUrl);
+                const houseData = await houseResponse.json();
+
+                if (planetData.Status === 'Pass' && planetData.Payload) {
+                    displayAPIResults(name, birthDate, birthTime, birthPlace, planetData.Payload.AllPlanetData, houseData);
+                } else {
+                    // Fallback to local calculation
+                    fallbackCalculation(name, birthDate, birthTime, birthPlace, coords);
+                }
+            } catch (error) {
+                console.error('API Error:', error);
+                // Fallback to local calculation
+                fallbackCalculation(name, birthDate, birthTime, birthPlace, coords);
+            }
+        }
+
+        // Rasi name mappings (English to index)
+        const rasiNameMap = {
+            'Aries': 0, 'Mesha': 0,
+            'Taurus': 1, 'Vrishabha': 1,
+            'Gemini': 2, 'Mithuna': 2,
+            'Cancer': 3, 'Karka': 3,
+            'Leo': 4, 'Simha': 4,
+            'Virgo': 5, 'Kanya': 5,
+            'Libra': 6, 'Tula': 6,
+            'Scorpio': 7, 'Vrishchika': 7,
+            'Sagittarius': 8, 'Dhanu': 8,
+            'Capricorn': 9, 'Makara': 9,
+            'Aquarius': 10, 'Kumbha': 10,
+            'Pisces': 11, 'Meena': 11
+        };
+
+        // Nakshatra name mappings
+        const nakshatraNameMap = {
+            'Ashwini': 0, 'Bharani': 1, 'Krittika': 2, 'Rohini': 3,
+            'Mrigashira': 4, 'Mrigashirsha': 4, 'Ardra': 5, 'Punarvasu': 6,
+            'Pushya': 7, 'Ashlesha': 8, 'Magha': 9, 'PurvaPhalguni': 10,
+            'Purvaphalguni': 10, 'UttaraPhalguni': 11, 'Uttaraphalguni': 11,
+            'Hasta': 12, 'Chitra': 13, 'Swati': 14, 'Vishakha': 15,
+            'Anuradha': 16, 'Jyeshtha': 17, 'Mula': 18, 'Moola': 18,
+            'PurvaAshadha': 19, 'Purvashadha': 19, 'UttaraAshadha': 20, 'Uttarashadha': 20,
+            'Shravana': 21, 'Sravana': 21, 'Dhanishta': 22, 'Shatabhisha': 23,
+            'PurvaBhadrapada': 24, 'Purvabhadrapada': 24,
+            'UttaraBhadrapada': 25, 'Uttarabhadrapada': 25, 'Revati': 26
+        };
+
+        function displayAPIResults(name, birthDate, birthTime, birthPlace, planetData, houseData) {
+            let moonRasiIndex = 0, moonNakIndex = 0, moonPada = 1, lagnaIndex = 0;
+            const planetPositions = [];
+
+            // Extract Moon data for Rasi and Nakshatra
+            if (planetData.Moon) {
+                const moonInfo = planetData.Moon;
+                
+                // Get Rasi from Moon
+                if (moonInfo.PlanetRasiSign) {
+                    const signName = moonInfo.PlanetRasiSign.SignName || moonInfo.PlanetRasiSign;
+                    moonRasiIndex = rasiNameMap[signName] ?? 0;
+                }
+                
+                // Get Nakshatra from Moon
+                if (moonInfo.PlanetConstellation) {
+                    const nakName = moonInfo.PlanetConstellation.ConstellationName || 
+                                   moonInfo.PlanetConstellation.Name || 
+                                   moonInfo.PlanetConstellation;
+                    moonNakIndex = nakshatraNameMap[nakName] ?? 0;
+                    
+                    // Get Pada
+                    if (moonInfo.PlanetConstellation.Quarter) {
+                        moonPada = moonInfo.PlanetConstellation.Quarter;
+                    }
+                }
+            }
+
+            // Get Lagna from House 1
+            if (houseData && houseData.Status === 'Pass' && houseData.Payload && houseData.Payload.AllHouseData) {
+                const house1 = houseData.Payload.AllHouseData.House1;
+                if (house1 && house1.HouseSign) {
+                    const lagnaSign = house1.HouseSign.SignName || house1.HouseSign;
+                    lagnaIndex = rasiNameMap[lagnaSign] ?? 0;
+                }
+            } else {
+                // Fallback: use local Lagna calculation
+                const [year, month, day] = birthDate.split('-').map(Number);
+                const [hour, minute] = birthTime.split(':').map(Number);
+                const coords = getCoordinates(birthPlace);
+                const decimalHour = hour + minute / 60 - 5.5;
+                const jd = getJulianDay(year, month, day, decimalHour);
+                const ayanamsha = getLahiriAyanamsha(jd);
+                const lagnaLong = norm360(getLagna(jd, coords.lat, coords.lon) - ayanamsha);
+                lagnaIndex = Math.floor(lagnaLong / 30);
+            }
+
+            // Extract all planet positions
+            const planetAbbr = {
+                'Sun': 'சூ', 'Moon': 'சந்', 'Mars': 'செ', 'Mercury': 'பு',
+                'Jupiter': 'கு', 'Venus': 'சு', 'Saturn': 'ச', 'Rahu': 'ரா', 'Ketu': 'கே'
+            };
+
+            const placements = Array(12).fill(null).map(() => []);
+            
+            for (const planet in planetData) {
+                if (planetAbbr[planet] && planetData[planet].PlanetRasiSign) {
+                    const signName = planetData[planet].PlanetRasiSign.SignName || planetData[planet].PlanetRasiSign;
+                    const rasiIdx = rasiNameMap[signName];
+                    if (rasiIdx !== undefined) {
+                        placements[rasiIdx].push(planetAbbr[planet]);
+                    }
+                }
+            }
+
+            // Calculate Tithi, Yoga, Dasa
+            const tithiIndex = Math.floor((new Date(birthDate).getDate() - 1) % 15);
+            const yogaIndex = (moonNakIndex + Math.floor(moonRasiIndex / 2)) % 27;
+            const dasaIndex = moonNakIndex % 9;
+
+            // Display results
+            const [origYear, origMonth, origDay] = birthDate.split('-').map(Number);
+            document.getElementById('resultName').textContent = name;
+            document.getElementById('resultDetails').textContent = 
+                `பிறந்த தேதி: ${origDay}/${origMonth}/${origYear} | நேரம்: ${birthTime} | இடம்: ${birthPlace}`;
+
+            document.getElementById('resultRasi').textContent = 
+                `${rasiData[moonRasiIndex].tamil} ${rasiData[moonRasiIndex].symbol}`;
+            document.getElementById('resultNakshatra').textContent = nakshatraData[moonNakIndex];
+            document.getElementById('resultLagna').textContent = 
+                `${rasiData[lagnaIndex].tamil} ${rasiData[lagnaIndex].symbol}`;
+            document.getElementById('resultTithi').textContent = tithiData[tithiIndex];
+            document.getElementById('resultDasa').textContent = dasaData[dasaIndex];
+            document.getElementById('resultYoga').textContent = yogaData[yogaIndex];
+
+            // Update center info
+            document.getElementById('lagnaInfo').innerHTML = 
+                `லக்னம்: ${rasiData[lagnaIndex].tamil}<br>${rasiData[lagnaIndex].symbol}`;
+            document.getElementById('rasiInfo').innerHTML = 
+                `ராசி: ${rasiData[moonRasiIndex].tamil}<br>நட்சத்திரம்: ${nakshatraData[moonNakIndex].split(' ')[0]}<br>பாதம்: ${moonPada}`;
+
+            // Place planets in chart
+            const boxes = document.querySelectorAll('.rasi-box:not(.center)');
+            boxes.forEach(box => {
+                const planetInfo = box.querySelector('.planet-info');
+                if (planetInfo) planetInfo.textContent = '';
+            });
+
+            boxes.forEach((box, i) => {
+                const planetInfo = box.querySelector('.planet-info');
+                if (planetInfo && placements[i] && placements[i].length > 0) {
+                    planetInfo.textContent = placements[i].join(' ');
+                }
+            });
+
+            // Show result
+            document.getElementById('horoscopeResult').classList.add('active');
+            document.getElementById('horoscopeResult').scrollIntoView({ behavior: 'smooth' });
+            showToast('ஜாதகம் உருவாக்கப்பட்டது! / Horoscope generated!');
+        }
+
+        function fallbackCalculation(name, birthDate, birthTime, birthPlace, coords) {
             // Parse date and time
             let [year, month, day] = birthDate.split('-').map(Number);
             const [hour, minute] = birthTime.split(':').map(Number);
             const timezone = 5.5; // IST
 
-            // Convert local time to UT (Universal Time)
+            // Convert local time to UT
             let decimalHour = hour + minute / 60 - timezone;
-            
-            // Adjust day if hour goes negative or exceeds 24
             if (decimalHour < 0) {
                 decimalHour += 24;
                 day -= 1;
-                // Handle month/year rollback if needed
                 if (day < 1) {
                     month -= 1;
-                    if (month < 1) {
-                        month = 12;
-                        year -= 1;
-                    }
-                    // Get last day of previous month
-                    const daysInMonth = new Date(year, month, 0).getDate();
-                    day = daysInMonth;
-                }
-            } else if (decimalHour >= 24) {
-                decimalHour -= 24;
-                day += 1;
-                // Handle month/year rollover if needed
-                const daysInMonth = new Date(year, month, 0).getDate();
-                if (day > daysInMonth) {
-                    day = 1;
-                    month += 1;
-                    if (month > 12) {
-                        month = 1;
-                        year += 1;
-                    }
+                    if (month < 1) { month = 12; year -= 1; }
+                    day = new Date(year, month, 0).getDate();
                 }
             }
 
-            // Calculate Julian Day (now with correct UT date/time)
             const jd = getJulianDay(year, month, day, decimalHour);
-
-            // Get Lahiri Ayanamsha
             const ayanamsha = getLahiriAyanamsha(jd);
 
-            // Calculate sidereal positions
-            const moonLongTropical = getMoonLongitude(jd);
-            const sunLongTropical = getSunLongitude(jd);
-            const lagnaLongTropical = getLagna(jd, coords.lat, coords.lon);
+            const moonLong = norm360(getMoonLongitude(jd) - ayanamsha);
+            const sunLong = norm360(getSunLongitude(jd) - ayanamsha);
+            const lagnaLong = norm360(getLagna(jd, coords.lat, coords.lon) - ayanamsha);
 
-            const moonLong = norm360(moonLongTropical - ayanamsha);
-            const sunLong = norm360(sunLongTropical - ayanamsha);
-            const lagnaLong = norm360(lagnaLongTropical - ayanamsha);
-
-            // Calculate Rasi, Nakshatra, Lagna indices
             const rasiIndex = Math.floor(moonLong / 30);
             const nakshatraIndex = Math.floor(moonLong / (360 / 27));
             const lagnaIndex = Math.floor(lagnaLong / 30);
             const nakshatraPada = Math.floor((moonLong % (360 / 27)) / (360 / 108)) + 1;
 
-            // Calculate Tithi (Moon - Sun)
             let tithiDiff = moonLong - sunLong;
             if (tithiDiff < 0) tithiDiff += 360;
             const tithiIndex = Math.floor(tithiDiff / 12) % 15;
-
-            // Calculate Yoga (Moon + Sun)
             const yogaIndex = Math.floor(norm360(moonLong + sunLong) / (360 / 27));
-
-            // Dasa from Nakshatra lord (Vimshottari)
             const dasaIndex = nakshatraIndex % 9;
 
-            // Display results - use original birth date for display
+            // Display
             const [origYear, origMonth, origDay] = birthDate.split('-').map(Number);
             document.getElementById('resultName').textContent = name;
             document.getElementById('resultDetails').textContent = 
@@ -2230,20 +2370,18 @@
             document.getElementById('resultDasa').textContent = dasaData[dasaIndex];
             document.getElementById('resultYoga').textContent = yogaData[yogaIndex];
 
-            // Update center info with Pada
             document.getElementById('lagnaInfo').innerHTML = 
                 `லக்னம்: ${rasiData[lagnaIndex].tamil}<br>${rasiData[lagnaIndex].symbol}`;
             document.getElementById('rasiInfo').innerHTML = 
                 `ராசி: ${rasiData[rasiIndex].tamil}<br>நட்சத்திரம்: ${nakshatraData[nakshatraIndex].split(' ')[0]}<br>பாதம்: ${nakshatraPada}`;
 
-            // Calculate planet positions and place in chart
+            // Planet positions
             const boxes = document.querySelectorAll('.rasi-box:not(.center)');
             boxes.forEach(box => {
                 const planetInfo = box.querySelector('.planet-info');
                 if (planetInfo) planetInfo.textContent = '';
             });
 
-            // Approximate planetary positions
             const d = jd - 2451545.0;
             const planetPositions = [
                 { name: 'சூ', rasi: Math.floor(sunLong / 30) },
@@ -2259,9 +2397,7 @@
 
             const placements = Array(12).fill(null).map(() => []);
             planetPositions.forEach(p => {
-                if (p.rasi >= 0 && p.rasi < 12) {
-                    placements[p.rasi].push(p.name);
-                }
+                if (p.rasi >= 0 && p.rasi < 12) placements[p.rasi].push(p.name);
             });
 
             boxes.forEach((box, i) => {
@@ -2271,7 +2407,6 @@
                 }
             });
 
-            // Show result
             document.getElementById('horoscopeResult').classList.add('active');
             document.getElementById('horoscopeResult').scrollIntoView({ behavior: 'smooth' });
             showToast('ஜாதகம் உருவாக்கப்பட்டது! / Horoscope generated!');
