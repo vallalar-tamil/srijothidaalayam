@@ -1550,12 +1550,44 @@
             const coords = getCoordinates(birthPlace);
 
             // Parse date and time
-            const [year, month, day] = birthDate.split('-').map(Number);
+            let [year, month, day] = birthDate.split('-').map(Number);
             const [hour, minute] = birthTime.split(':').map(Number);
             const timezone = 5.5; // IST
 
-            // Calculate Julian Day
-            const decimalHour = hour + minute / 60 - timezone;
+            // Convert local time to UT (Universal Time)
+            let decimalHour = hour + minute / 60 - timezone;
+            
+            // Adjust day if hour goes negative or exceeds 24
+            if (decimalHour < 0) {
+                decimalHour += 24;
+                day -= 1;
+                // Handle month/year rollback if needed
+                if (day < 1) {
+                    month -= 1;
+                    if (month < 1) {
+                        month = 12;
+                        year -= 1;
+                    }
+                    // Get last day of previous month
+                    const daysInMonth = new Date(year, month, 0).getDate();
+                    day = daysInMonth;
+                }
+            } else if (decimalHour >= 24) {
+                decimalHour -= 24;
+                day += 1;
+                // Handle month/year rollover if needed
+                const daysInMonth = new Date(year, month, 0).getDate();
+                if (day > daysInMonth) {
+                    day = 1;
+                    month += 1;
+                    if (month > 12) {
+                        month = 1;
+                        year += 1;
+                    }
+                }
+            }
+
+            // Calculate Julian Day (now with correct UT date/time)
             const jd = getJulianDay(year, month, day, decimalHour);
 
             // Get Lahiri Ayanamsha
